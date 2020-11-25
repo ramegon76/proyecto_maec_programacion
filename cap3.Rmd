@@ -350,7 +350,7 @@ ggplot(residuos2[which(residuos2$k_sem > 0),],
 <br>
 
 
-## Causas de la perdida o despedicio de los residuos. 
+## Causas de la pérdida o despedicio de los residuos. 
 <br>
 
 Esta variable decidió capturarse de modo abierto, a fin de dejar en manos del informante toda la gama de respuestas posibles. Con ello, se tiene la posibilidad de construir categorías más cercanas a las posibles respuestas de los informantes para un segundo evento de la encuesta.
