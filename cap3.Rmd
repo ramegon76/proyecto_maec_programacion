@@ -137,7 +137,7 @@ barplot(df[1:10,]$freq, las = 2, names.arg = df[1:10,]$word,
 
 <br>
 
-Del análisis de estros textos, pueden obtenerse elementos para construir categorías de respuesta precodificadas para la captación de los residuos de forma más específica.
+Del análisis de estos textos, pueden obtenerse elementos para construir categorías de respuesta precodificadas para la captación de los residuos de forma más específica.
 
 <br>
 <br>
