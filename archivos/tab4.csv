@@ -1,0 +1,26 @@
+ V1 , llave , Llave de entrevista asignada por el sistema 
+ V2 , folio_sist , Folio asignado al registro por el sistema 
+ V3 , tipo , Tipo de entrevista 
+ V4 , id_denue , Identificador del establecimiento según su registro en el DENUE 
+ V5 , latitud , Latitud de la coordenada geográfica 
+ V6 , longitud , Longitud de la coordenada geográfica 
+ V7 , prec , Precisión de la coordenada geográfica 
+ V8 , altitud , Altitud SNM de la coordenada geográfica 
+ V10 , planeado , Define si el establecimiento corresponde a lo planeado en muestra 
+ V11 , nvo_establec , Nombre del nuevo establecimiento 
+ V12 , saludo , Define si se localiza al dueño o encargado 
+ V13 , acepta , Define si el informante acepta la entrevista al momento 
+ V17 , consumo , Tipo de consumo de los alimentos que se manejan 
+ V18 , mercado , Tipo de mercado de los alimentos que se manejan 
+ V19 , residuos_vc , Existencia de Residuos de vegetal crudo 
+ V20 , residuos_vp , Existencia de Residuos de vegetal procesado 
+ V21 , residuos_ac , Existencia de Residuos de animal crudo 
+ V22 , residuos_ap , Existencia de Residuos de animal procesado 
+ V23 , residuos_ot , Existencia de Residuos de otro tipo 
+ V24 , ot_residuos_e , Especifica residuos de otro tipo 
+ V25 , despedida , Se leyó despedida 
+ V26 , obs_1 , Observaciones del entrevistador 
+ V26_0 , obs_2 , Observaciones del entrevistador 
+ V27 , obs_3 , Observaciones del entrevistador 
+ V28 , obs_4 , Observaciones del entrevistador 
+ V29 , obs_5 , Observaciones del entrevistador 

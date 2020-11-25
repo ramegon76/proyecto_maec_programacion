@@ -1,0 +1,3 @@
+"cve_serv","name_serv","propietario","e_mail","usuario_designer","pass_designer","usuario_headquart","pass_headquart","start","finish","muestra_max","type","url"
+"s1","serv-eramo1-demo","Raúl Alejandro Mejía Morales","ramegon@hotmail.com","serv_eramo1","PP01_eramo2020","admin","PP01_eramo2020_1 ","19/10/20","18/11/20",1000,"Personal demo survey","https://serv-eramo1-demo.mysurvey.solutions/"
+"s2","serv-perd_alim1-demo","Briseida Darani Mejía Morales","briseidarani@gmail.com","serv_perd_alim1","PP01_eramo2020_2","admin","PP01_eramo2020_2","19/10/20","18/11/20",1000,"Personal demo survey","https://serv-perd-alim1-demo.mysurvey.solutions/"

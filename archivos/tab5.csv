@@ -1,0 +1,7 @@
+V1,	llave,	Llave de entrevista asignada por el sistema
+V2,	folio_sist,	Folio asignado al registro por el sistema
+V6,	estatus,	Estado de la entrevista al momento de la descarga
+V8,	fecha_com,	Fecha en la que se registró el comentario
+V9,	hora_com,	Hora en la que se registró el comentario
+V10,	autor_com,	Figura operativa que realizó el comentario
+V12,	comentario,	Comentario

@@ -1,0 +1,30 @@
+head: <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+  crossorigin="anonymous">
+name: proyecto_maec_programacion
+output_dir: '.'
+navbar:
+  title: Proyecto Final de Programación <br>Raúl Mejía González
+  type: inverse
+  left:
+  - text: Presentación
+    href: index.html
+    icon: fa-home
+  - text: Metodología
+    href: cap1.html
+    icon: fa-tasks
+  - text: Procesamiento
+    href: cap2.html
+    icon: fa-building
+  - text: Resultados
+    href: cap3.html
+    icon: fa-bar-chart
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: flatly
+    highlight: haddock
+    font-size: 10px
+    lib_dir: site_libs
+    self_contained: no

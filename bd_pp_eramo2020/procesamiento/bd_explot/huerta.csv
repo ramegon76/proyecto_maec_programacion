@@ -1,0 +1,5 @@
+Tipo de residuo,Contenido del residuo,Cantidad,Unidad,Cantidad del residuo que es no comestible,unid_r_no_comes,Periodo,Causa del desecho,Destino
+vegetal crudo,Mezcla de vegetales,11224,toneladas,11224,toneladas,Anual (2019),Parte de proceso de corte,"Composteo, procesos aeróbicos"
+vegetal procesado,Mezcla de vegetales,8900,toneladas,8900,toneladas,Anual (2019),Proceso,"Composteo, procesos aeróbicos"
+otro,Varios,50,kilogramos,50,kilogramos,Anual (2019),Producto Caduco,Otro destino (destrucción)
+otro,Cosecha no levantada,20000,toneladas,20000,toneladas,Anual (2019),Se pierde la cosecha,Otro destino (se queda en la tabla)

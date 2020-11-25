@@ -1,0 +1,254 @@
+---
+title: "**Presentación**"
+--- 
+<br>
+<br>
+<br>
+
+<div class=text-justify>
+
+# **Proyecto: Creación, validación y explotación de una base de datos para la Prueba Piloto de la Encuesta de Residuos de Alimentos y Materia Orgánica 2020**
+ 
+<br>
+<br>
+<br>
+ 
+## Objetivo general del proyecto
+
+<br>
+
+Crear, validar y explotar una base de datos proveniente de un ejercicio real de captación de datos en campo, correspondiente al levantamiento de la Prueba Piloto de la Encuesta de Residuos de Alimentos y Materia Orgánica 2020 (ERAMO 2020), que la Dirección de Estadísticas del Medio Ambiente del INEGI realizará del 3 al 27 de noviembre del presente.
+
+<br>
+<br>
+
+## Objetivos Específicos:
+
+<br>
+
+1. Conformar dentro de una arquitectura de base de datos relacional (db) los datos captados en campo provenientes del levantamiento de la prueba piloto mencionada, de modo que dicha estructura de datos pueda ser fácilmente explotable.
+
+2. Validar los datos para generar una base de datos confiable, con la suficiente consistencia lógica entre variables, programando reglas de validación específicas que permitan solucionar las incongruencias que puedan existir en los datos.
+
+3. Realizar un ejercicio muestra de explotación de la información a través de la generación de algunos indicadores de relevancia para la encuesta, en alguno de los lenguajes de programación del curso (R y SQL).
+
+4. Ensayar y practicar el conocimiento recién adquirido en el curso respecto al uso de algunas herramientas, como las consultas y manejo de base de datos con SQLite, la programación en R, y la conformación de reportes de proyectos con Markdown, dentro de un ejercicio real de una prueba piloto de una encuesta piloto que sirve muy bien a los propósitos de este proyecto.
+
+<br>
+<br>
+
+## Justificación
+
+<br>
+
+La principal razón para elegir esta propuesta de proyecto radica en el hecho de que soy el responsable de la gestión y funcionamiento del sistema de captura de la ERAMO 2020, así como del procesamiento, explotación y generación de resultados de la misma, como Jefe de Departamento de Integración de Estadísticas e Indicadores de la Dirección de Estadísticas del Medio Ambiente. 
+
+Como se menciona en el objetivo general, la fecha del levantamiento de la prueba piloto mencionada, justo en los días finales de entrega del proyecto, representa una oportunidad inmejorable para practicar los conocimientos recién adquiridos en el curso respecto al manejo de base de datos con el lenguaje SQL, así como sobre el procesamiento que es posible realizar con R aplicado a dicha base de datos, a fin de generar algunos resultados de indicadores en forma de tablas, gráficas y mapas, y todo integrado dentro de un reporte de resultados generado en el lenguaje de marcado y compilación Markdown (RMarkdown).
+
+Bajo estas circunstancias, debo aclarar también que mis responsabilidades dentro de la encuesta me mantendrán bajo mucha presión durante el periodo mencionado, por lo que decidí aprovechar este proyecto en el que ya estoy inmerso de forma natural desde hace tiempo, que idear una propuesta distinta y tener que construir desde cero un proyecto de programación a la par del desarrollo de mis tareas como responsable informático de la encuesta. Con esta propuesta de proyecto he querido conjuntar por tanto, el poder cumplir con los requerimientos de la asignatura, al tiempo que desempeño mis obligaciones laborales. No se me ocurre una mejor manera de amalgamar conocimiento teórico y práctico.
+
+<br>
+<br>
+
+
+## Descripción de la ERAMO
+
+<br>
+
+
+Las pérdidas de alimentos que se producen a lo largo de la cadena desde la cosecha, el sacrificio o la captura hasta el nivel minorista, pero sin incluirlo. El desperdicio de alimentos se produce en el nivel de la venta al por menor y el consumo.
+
+Un tercio estimado de toda la comida se pierde o se desperdicia al pasar de donde se produce a donde se consume; teniendo importantes impactos económicos, sociales y ambientales.
+
+Las causas son variadas y van desde el momento inadecuado de cosecha, las condiciones climáticas, las prácticas aplicadas en la cosecha, su manipulación, el transporte y almacenamiento, hasta las dificultades en la comercialización de los productos.
+
+Actualmente, se están realizando esfuerzos por parte de la FAO y ONU Medio Ambiente para medir el progreso hacia el logro del ODS 12.3 a través de dos índices separados: el Índice de Pérdida de Alimentos (FLI), dirigido por la FAO; y el Índice de desperdicio de alimentos (FWI), liderado por ONU Medio Ambiente  [(http://www.fao.org/platform-food-loss-waste/background/en/)](http://www.fao.org/platform-food-loss-waste/background/en/){target="_blank_"}.
+
+En  México no existe estadística oficial sobre la pérdida y desperdicio de alimentos (PDA). Algunos estudios hacen medición o estimación del desperdicio y pérdida de los alimentos, pero requieren de un respaldo estadístico de mayor envergadura, en un esfuerzo nacional que recupere las distintas realidades de nuestro vasto territorio y diversidad cultural.
+
+Por ello, desde el año pasado, se constituyó un grupo de trabajo con la finalidad de diseñar una encuesta sobre residuos alimenticios dirigida a toda la cadena alimentaria, a fin de conocer su origen, cantidad, composición, reutilización, tratamiento y disposición final; con el propósito de generar información valiosa para conocer el fenómeno y facilitar, en lo posible, la toma de decisiones técnicamente sustentada. 
+
+Dicho grupo se integra por las siguientes instituciones:
+
+- Centro de Estudios para el Desarrollo Rural Sustentable y la Soberanía Alimentaria (CEDRSSA), adscrito a la Cámara de Diputados
+
+- Instituto Politécnico Nacional (IPN)
+
+- Secretaría del Medio Ambiente y Recursos Naturales
+
+- Universidad Autónoma Chapingo
+
+- Red 12.3 PDA México
+
+- INEGI
+
+- Oficina de Consultoría del Banco Mundial para la PDA en México
+
+En conjunto, se ha trabajado en la construcción de un marco conceptual y metodológico que sirva a los objetivos trazados, mismo que retoma los marcos conceptuales de la FAO y la Comisión de Cooperación Ambiental de América del Norte para adaptarlos a la realidad de México.
+
+En este contexto el INEGI, a través de la Dirección de Estadísticas del Medio Ambiente, pretende realizar en este año la prueba piloto y el en el siguiente ya un levantamiento nacional, de lo que sería la primera encuesta diseñada y realizada en la Dirección General de Geografía del Instituto.
+
+El levantamiento de los datos en campo para esta prueba piloto ha sido realizado por los participantes voluntarios de la [RED 12.3 PDA México](http://red123pda.org.mx/#/){target="_blank_"}, que es una organización basada en un grupo de trabajo multidisciplinario de investigadores con instituciones tanto públicas como privadas, tecnólogos, empresarios y organizaciones, para contribuir a la sustentabilidad de las cadenas de suministro de alimentos, a través de diseñar, establecer y evaluar estrategias, tanto tecnológicas como de innovación social, que conduzcan a reducir la PDA en México. 
+
+El INEGI a través de nuestra dirección, funcionó como coordinador general del operativo, así como el encargado de integrar, validar, procesar y presentar resultados de la prueba piloto, y finalmente, entregar la base de datos liberada para su análisis y explotación por parte de los participantes y colaboradores del proyecto.
+
+Cabe aclarar que la muestra al tratarse de un ejercicio piloto **no es una muestra probabilística** por lo que sus resultados no tienen representatividad estadística, y pueden servir únicamente para efectos de análisis tendencias, y exploración del comportamiento del fenómeno en las unidades de producción observadas.
+
+Las unidades de observación fueron las unidades de producción agropecuarias y los establecimientos de los sectores de manufactura, distribución, transporte y servicios relacionados con alimentos, que conforman el grupo de contactos e informantes relacionados con la RED PDA 12.3 México. 
+
+<br>
+<br>
+
+## Sistema de captura
+
+<br>
+
+Los sistemas electrónicos de captura, denominados sistemas CAPI (Computer Assisted Personal Interview), son herramientas de gran utilidad para el aseguramiento de la calidad de los datos. Se trata de la modalidad en la que se sustituye el formato de cuestionario en papel por su aplicación en dispositivos móviles como tabletas o teléfonos celulares, en cuya pantalla van apareciendo las preguntas del cuestionario. Una vez que el informante proporciona la respuesta, el entrevistador la registra en el dispositivo y se guarda automáticamente en la memoria de éste.
+
+Concluida la entrevista, puede realizarse el envío de la información captada a la sede local o central donde se realiza el procesamiento, a través de Internet u otros protocolos de comunicación o se puede conectar el dispositivo directamente a una computadora o servidor donde se esté integrando la base de datos de la encuesta.
+
+El uso de estos sistemas de captura presenta varias ventajas entre, ellas: 
+
+- Los sistemas pueden programarse incluyendo diferentes validaciones, de tal modo que
+aseguren una mayor limpieza de la información desde el momento mismo de la entrevista.
+
+- Dichas validaciones incluyen verificaciones de secuencia, tales como pases, filtros y la posibilidad de direccionar la secuencia hacia secciones específicas del cuestionario a través de preguntas pivote o disparadoras; otro tipo de validaciones comunes comprenden la revisión de omisión en las respuestas o de rangos válidos de las mismas. 
+
+- Esto facilita el trabajo del entrevistador cuando la secuencia o los filtros en los cuestionarios son complejos o cuando la aplicación de ciertas preguntas depende de las respuestas que el informante ha dado con anterioridad. 
+
+- Con ello, se disminuyen los riesgos asociados a un manejo incorrecto del instrumento de captación, ya que el sistema verifica las respuestas registradas y asegura que el cuestionario fluya de manera natural.
+
+- La administración del operativo de campo puede realizarse desde los módulos de control de cargas de trabajo y asignación de roles que los sistemas CAPI contienen como parte de su programación. 
+
+- Las aplicaciones más recientes de este tipo poseen la programación necesaria para dar seguimiento georreferenciado de cada una de las unidades de observación, de modo que para los supervisores o administradores del operativo resulta muy fácil la verificación de la ubicación de las unidades de la muestra, el control operativo en términos de avances de cobertura en las unidades levantadas y la posibilidad de generar mapas interactivos para ir dando cuenta de la distribución geográfica de las entrevistas.
+
+- Además de las validaciones básicas, pueden programarse otras relacionadas con aspectos conceptuales entre variables, de tal manera que al concluir la entrevista el sistema verifique la consistencia o correspondencia que debe haber entre preguntas o grupos de preguntas. Si el sistema detecta alguna irregularidad, es capaz de emitir una alerta para que el entrevistador haga alguna verificación con el informante antes de abandonar la vivienda.
+
+- Este tipo de herramientas electrónicas no requiere conocimientos de programación
+elaborada, pues tiene interfaces muy amigables. El usuario tampoco requiere la habilitación de plataformas de alojamiento en servidores para las bases de datos, ya que la mayoría de estas aplicaciones cuentan con la posibilidad de albergar los datos en servidores de Internet (nube). 
+
+- Esto hace muy asequible su uso, pues el usuario no requiere contar con una infraestructura de hardware especial para la encuesta. **En particular, para el levantamiento de esta prueba piloto, se usó una plataforma desarrollada por el Banco Mundial denominada [___Survey Solutions___](https://mysurvey.solutions/){target="_blank_"}**, la cual es gratuita, cumple con todas las características ya descritas, y tiene como objetivo brindar a los países con limitaciones en infraestructura informática una aplicación que permita realizar encuestas sociales o gubernamentales de forma sencilla y económica.
+
+<br>
+
+El funcionamiento a grandes rasgos de la aplicación es el siguiente:
+
+1. Se crea una cuenta gratuita en la plataforma *Survey Solutions* (SS). Para hacerlo sólo se requiere una cuenta de correo electrónico y llenar un formato de registro con una breve descripción de la encuesta.
+
+3. Se solicita un servidor personal para alojar la encuesta. La aplicación reserva un espacio para el mismo y concede el control de la interfaz operativa para la encuesta, en la cual se pueden cargar supervisores y entrevistadores, asignar cargas de trabajo y dar seguimiento al avance del operativo, a través de diversas herramientas, en [_Survey Solutions Headquarters_](https://support.mysurvey.solutions/headquarters/){target="_blank_"}. Este servidor tiene un periodo de servicio de un mes, y un límite máximo de alojamiento de 1000 entrevistas, lo cual resulta más que suficiente para los propósitos de la prueba piloto. En el caso nuestro solicitamos dos servidores independientes, para preveer cualquier número de entrevistas posibles provenientes de la prueba sin que se saturara su capacidad, incluidas las pruebas necesarias.
+
+
+2. Una vez creada la cuenta y servidor, se puede acceder a la [página del diseñador de cuestionarios](https://designer.mysurvey.solutions/Identity/Account/Login?ReturnUrl=%2F){target="_blank_"}, en la cual se realiza la programación del cuestionario mismo. Esta interfaz de programación está basada en bloques (preguntas tipo), por lo que es muy intuitiva y sencilla, y no requiere de conocimientos previos, ni de lenguajes de programación.
+
+3. Ya diseñado el cuestionario, éste se importa desde el administrador del servidor y se carga en el servidor de la encuesta.
+
+4. Cada entrevistador descarga e instala la aplicación en su teléfono o tableta (Android), desde el sitio de descarga: https://demo.mysurvey.solutions/Download .
+
+5. Cuando se abre la aplicación por primera vez en el dispositivo, debe escanearse un código QR que se genera desde el administrador para cada entrevistador. Con este acceso, se permite la sincronización por Internet entre el dispositivo y el servidor, y se puede  proceder a la descarga de los cuestionarios en el dispositivo y su eventual ejecución.
+
+6. Una vez realizadas las entrevistas, con la periodicidad definida por el control operativo de la encuesta, los dispositivos se sincronizan con el servidor a través de Internet, para enviar las entrevistas captadas y recibir nuevas cargas de trabajo.
+
+7. Finalmente, los datos captados, se van alojando en el servidor, donde en la sede central pueden liberarse y al final del operativo descargarse como una carpeta de tablas en formatos *tab*, *sav* o *sas*.
+
+<br>
+
+A continuación se muestra un video de llenado del cuestionario electrónico para establecimientos a modo ilustrativo.
+
+</div>
+
+<br>
+
+<div class=text-center>
+
+<video width="250" height="500" controls muted>
+    <source src="archivos/llenado.mp4?rel=0" type="video/mp4">
+</video>
+
+</div>
+
+<br>
+<br>
+
+Se incluye también el cuestionario para unidades agropecuarias, del cual no dispongo de video de llenado.
+
+<br>
+
+<iframe src="archivos/Cuest_AgropecuarioERAMO.pdf" style="width:100%; height:600px;" frameborder="0"></iframe>
+
+<br>
+<br>
+<br>
+
+## Un Sitio Web para la presentación del proyecto
+
+<br>
+
+Como se puede observar, se ha decidido publicar este proyecto en un sitio de desarrollo libre en Github, lo que representa una serie de ventajas para los desarrolladores que entre otras son:
+
+<br>
+
+1) Control de versiones del código, en nuestro caso a través de Git.
+
+2) Visor de código. Cualquiera con el acceso puede ver el código desarrollado, lo que favorece la cooperación y el aprendizaje entre programadores.
+
+3) Una gran comunidad de cooperación a través de foros. notificaciones y la posibilidad de habilitar a otros programadores como colaboradores de un proyecto.
+
+4) Compatibilidad multiplataforma, que en mi caso particular es muy útil, ya que yo uso Linux.
+
+5) Totalmente gratuito, y con Github Pages que permite el hosting de sitios web personales de manera ilimitada.
+
+Entre otros...
+
+<br>
+
+De este modo, para elaborar el sitio web que se presenta ahora mismo, los pasos son los siguientes:
+
+<br>
+
+1. Se abre una cuenta en Github.
+
+2. Se crea un repositorio dentro del sitio de la cuenta personal creada.
+
+3. Se crea un proyecto en RStudio con la herramienta de control de versiones Git, que previamente debe estar instalado en la computadora.
+
+4. En los campos de llenado de este proyecto con Git, hay que copiar y pegar la url generada en el momento que se creó el repositorio del paso 2. Se selecciona una carpeta del equipo donde se alojará nuestro proyecto.
+
+5. Una vez creado el proyecto es necesario iniciar con la creación de los archivos que darán origen y configuración al sitio web:
+
+    5.1 El archivo de encabezados *YAML*, (_site.yml) que define la estructura general que tendrá el sitio, su división en pestañas y titulos de los apartados. Los íconos, estilos y diseño general del sitio web se definen aquí. Las instrucciones se codifican mediante sentencias *Pandoc* que definen las características de salida ya mencionadas. Puede abrirse el archivo _site.yml de la carpeta donde se aloja este proyecto con un editor de textos o el propio RStudio para ver su código.
+    
+    5.2 Los archivos Rmd en los que se vierten los contenidos de texto, imágenes, gráficas, mapas, multimedia, chunks de código, y en general todo el cuerpo del reporte. Para integrar todo se utiliza el lenguaje de marcado y compilación Markdown, que en el caso de R se gestiona a través de la librería **RMarkdown**.
+    
+    5.3 En la misma carpeta del proyecto, deben estar contenidos todos los archivos, subcarpetas y elementos auxiliares necesarios para la compilación del sitio. Por ejemplo, si se llama un archivo pdf a ser integrado dentro del sitio web, este debe estar alojado en una carpeta dentro del proyecto, para que el compilador pueda encontrarla en la ruta especificada. Lo mismo sucede para las imágenes, videos y cualquier otro elemento que quiera incluirse.
+    
+    5.4 Cuando se tienen listos los archivos Rmd del sitio, se compilan corriendo en la consola la instrucción: *rmarkdown::render_site(encoding="UTF-8")*
+    
+6. Como resultado de esta compilación, se genera el sitio web. Por último, para subir su contenido al repositorio asignado por Github en el paso 2, es necesario abrir la terminal del proyecto y correr las siguientes líneas comandos del controlador de versiones Git. Las dos primeras son para invocar la herramienta y activar la búsqueda de ficheros dentro del área de trabajo, mientras que la tercera es para asociar un comentario a la versión que se subirá, y la última para ejecutar dicha subida de información al servidor.
+
+    - git add .
+    
+    - git add -A
+    
+    - git commit -m "comentario deseado"
+    
+    - git push origin master
+
+7. El resultado de todo este procedimiento es un sitio web dentro de Github, que es precisamente el que se está visualizando en este proyecto.  
+    
+    
+<br>
+
+**Toda la carpeta del proyecto, que incluye los códigos, archivos y complementos necesarios para la construcción de este sitio se entregarán para su revisión y evaluación, junto con la URL del sitio web.**
+    
+<br>
+    
+Para mayor detalle respecto a la construcción de sitios web con RMarkdown, se recomienda el siguiente video:
+
+
+<br>
+
+<iframe width="710" height="430" src="https://www.youtube.com/embed/JxsreeFsu8g" frameborder="0" allowfullscreen></iframe>
+
+<br>
+<br>
+ 

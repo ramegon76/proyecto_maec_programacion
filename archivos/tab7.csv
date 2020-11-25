@@ -1,0 +1,4 @@
+V1,	llave,	Llave de entrevista asignada por el sistema
+V2,	folio_sist,	Folio asignado al registro por el sistema
+V3,	tipo_resid,	Código correspondiente al tipo de residuo declarado
+V4,	num_resid,	Número de residuos declarados

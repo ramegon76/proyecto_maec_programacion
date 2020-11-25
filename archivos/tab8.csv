@@ -1,0 +1,21 @@
+V1,	llave,	Llave de entrevista asignada por el sistema
+V2,	folio_sist,	Folio asignado al registro por el sistema
+V3,	tipo_resid,	Código correspondiente al tipo de residuo declarado
+V4,	consec_residuo,	Consecutivo del residuo declarado. Se suma 1 a cada registro para inicializar la cuenta en 1
+V5,	nombre_residuo,	Descripción del residuo reportado
+V6,	cantidad_resid,	Cantidad del residuo reportado
+V7,	unidad_resid,	Unidad de medida del residuo reportado
+V8,	otra_unidad,	Especifica otra unidad de medida del residuo reportado
+V9,	cant_r_no_comes,	Cantidad del residuo reportado que es no comestible
+V10,	unid_r_no_comes,	Unidad de medida del residuo reportado que es no comestible
+V11,	otra_ur_no_comes,	Especifica otra unidad de medida del residuo reportado que es no comestible
+V12,	t_colecta,	Periodo en el que reúne los residuos
+V13,	otro_t_colecta,	Especifica otro periodo en el que reúne los residuos
+V14,	causa_desecho,	Principal causa por la que se producen los residuos o desechos
+V15,	destino,	Principal destino de los residuos
+V16,	cant_banco,	Cantidad de residuos que se destinan a Banco de alimentos / comedor público
+V17,	unidad_banco,	Unidad de medida de la cantidad de residuos que se destinan a Banco de alimentos / comedor público
+V19,	otro_destino,	Especifica otro principal destino de los residuos
+V20,	autoriza_imag,	Autoriza fotografiar imagen de residuos
+V21,	imagen_resid,	Identifica nombre de imagen de residuos en la BD
+

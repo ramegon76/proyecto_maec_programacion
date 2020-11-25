@@ -1,0 +1,31 @@
+ establecimientos.csv , V14 , Campo para código de reprogramación. Se utilizó para casos que serán filtrados como entrevistas sin respuesta  por lo que es innecesario mantenerlo 
+ establecimientos.csv , V15 , Campo para nombre de persona que atendería en la reprogramación. Se utilizó para casos que serán filtrados como entrevistas sin respuesta  por lo que es innecesario mantenerlo  
+ establecimientos.csv , V16 , Campo para fecha de reprogramación. Se utilizó para casos que serán filtrados como entrevistas sin respuesta  por lo que es innecesario mantenerlo 
+ establecimientos.csv , V26_1 , Campo adicional para texto. No se utilizó 
+ establecimientos.csv , V26_2 , Campo adicional para texto. No se utilizó  
+ establecimientos.csv , V26_3 , Campo adicional para texto. No se utilizó  
+ establecimientos.csv , V26_4 , Campo adicional para texto. No se utilizó  
+ establecimientos.csv , V27_0 , Campo adicional para texto. No se utilizó  
+ establecimientos.csv , V30 , Campo del sistema. Sin datos 
+ establecimientos.csv , V31 , Campo del sistema. Datos sin utilidad para la explotación 
+ establecimientos.csv , V32 , Campo del sistema. Datos sin utilidad para la explotación 
+ establecimientos.csv , V33 , Campo del sistema. Datos sin utilidad para la explotación 
+ establecimientos.csv , V34 , Campo del sistema. Datos sin utilidad para la explotación 
+ interview_diagnostics.csv , V3 , Campo del sistema. Datos sin utilidad para la explotación
+ interview_diagnostics.csv , V5, Campo del sistema. Datos sin utilidad para la explotación  
+ interview_diagnostics.csv , V6, Campo del sistema. Datos sin utilidad para la explotación  
+ interview_diagnostics.csv , V7 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_diagnostics.csv , V8 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_diagnostics.csv , V9 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_comments.csv , V3 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_comments.csv , V4 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_comments.csv , V5 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_comments.csv , V7 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_comments.csv , V11 , Campo del sistema. Datos sin utilidad para la explotación  
+ interview_comments.csv , V12_0 , Campo adicional para texto. No se utilizó  
+ interview_comments.csv , V12_1 , Campo adicional para texto. No se utilizó  
+ lista_tiporesiduos.csv , V5_0 , Campo adicional para texto. No se utilizó  
+ lista_tiporesiduos.csv , V5_1 , Campo adicional para texto. No se utilizó  
+ lista_tiporesiduos.csv , V14_0 , Campo adicional para texto. No se utilizó  
+ lista_tiporesiduos.csv , V14_1 , Campo adicional para texto. No se utilizó  
+ lista_tiporesiduos.csv , V18 , Campo para especificar otra unidad para residuos a bancos de alimentos. No se utilizó  

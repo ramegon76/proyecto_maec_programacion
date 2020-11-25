@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Resultados</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<link href="site_libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.css" rel="stylesheet" />
+<script src="site_libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.js"></script>
+<link href="site_libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="site_libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Proyecto Final de Programación <br>Raúl Mejía González</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Presentación
+  </a>
+</li>
+<li>
+  <a href="cap1.html">
+    <span class="fa fa-tasks"></span>
+     
+    Metodología
+  </a>
+</li>
+<li>
+  <a href="cap2.html">
+    <span class="fa fa-building"></span>
+     
+    Procesamiento
+  </a>
+</li>
+<li>
+  <a href="cap3.html">
+    <span class="fa fa-bar-chart"></span>
+     
+    Resultados
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore"><strong>Resultados</strong></h1>
+
+</div>
+
+
+<div class=text-justify>
+
+<p><br> <br></p>
+<div id="consideración-inicial-acerca-de-las-cifras-que-se-obtienen-de-la-muestra." class="section level2">
+<h2>Consideración inicial acerca de las cifras que se obtienen de la muestra.</h2>
+<p>Antes de dar paso al análisis de los datos captados en el operativo de prueba, es necesario recordar que se debe tener presente que la muestra no fue construida en forma probabilística, de tal forma que no pueden obtenerse inferencias y ni siquiera pueden usarse las cifras obtenidas como indicadores de estimaciones o aproximaciones a los datos para el estado de Aguascalientes. Todas las cifras que a continuación se presentan, son indicadores construidos con carácter ilustrativo para este proyecto.</p>
+<p><br></p>
+</div>
+<div id="generación-de-residuos-por-tipo." class="section level2">
+<h2>Generación de residuos por tipo.</h2>
+<p><br></p>
+<p>De acuerdo con los datos obtenidos de la muestra, el tipo de residuos que se reporta principalmente son los de <em>Vegetal Crudo</em>, le siguen los de <em>Animal Crudo</em>, enseguida los de <em>otro tipo</em>, que se refiere en la mayoría de los casos a los alimentos preparados, en el que se sirven mezclados los vegetales y la carne.</p>
+<p><br></p>
+<img src="cap3_files/figure-html/t_res-1.png" width="768" />
+<p align="center">
+<strong>Fuente: INEGI. Prueba Piloto 01 ERAMO 2019</strong>
+</p>
+<p><br> <br></p>
+<p>Una vez que el informante declaraba el tipo de residuo según las categorías anteriores, se le solicitó que describiera en qué consistían dichos residuos. El análisis de esta información puede realizarse mediante una herramienta de agrupación de textos en nubes de palabras de R, obteniendo lo siguiente:</p>
+<p><img src="cap3_files/figure-html/wc1-1.png" width="768" /></p>
+<p>Que tienen las siguientes frecuencias:</p>
+<p><img src="cap3_files/figure-html/f1-1.png" width="768" /></p>
+<p><br></p>
+<p>Del análisis de estros textos, pueden obtenerse elementos para construir categorías de respuesta precodificadas para la captación de los residuos de forma más específica.</p>
+<p><br> <br></p>
+</div>
+<div id="caso-especial-la-huerta" class="section level2">
+<h2>Caso especial: <em>La Huerta</em></h2>
+<p><br></p>
+<p>En este punto del análisis, es necesario hacer mención especial de la empresa empacadora de verduras y frutas congeladas “<em>La Huerta</em>”, la cual proporcionó información muy precisa sobre los residuos que genera. La importancia de este tipo de unidades de observación es que por sí mismas constituyen un sub-universo de estudio de gran interés para el proyecto. De este modo, por el hecho de que los valores de residuos declarados en dicho establecimiento se encuentran muy por encima del promedio del resto de las unidades de observación (el orden de magnitud de sus residuos es de miles de toneladas anuales, y en el caso de las cosechas no levantadas, mensuales), sus datos no deben ser considerados junto con el resto de establecimientos, ya que su comportamiento atípico sesgaría demasiado los estadísticos de la muestra.</p>
+<p>Los datos captados en dicho establecimiento fueron los siguientes:</p>
+<p><br></p>
+<p align="center">
+<strong>Datos captados sobre residuos generados por <em>La Huerta</em></strong>
+</p>
+<p><br></p>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tipo de residuo
+</th>
+<th style="text-align:left;">
+Contenido del residuo
+</th>
+<th style="text-align:left;">
+Cantidad
+</th>
+<th style="text-align:left;">
+Unidad
+</th>
+<th style="text-align:left;">
+Cantidad del residuo que es no comestible
+</th>
+<th style="text-align:left;">
+Unidad de Resid No Comest
+</th>
+<th style="text-align:left;">
+Periodo
+</th>
+<th style="text-align:left;">
+Causa del desecho
+</th>
+<th style="text-align:left;">
+Destino
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+vegetal crudo
+</td>
+<td style="text-align:left;">
+Mezcla de vegetales
+</td>
+<td style="text-align:left;">
+11224
+</td>
+<td style="text-align:left;">
+toneladas
+</td>
+<td style="text-align:left;">
+11224
+</td>
+<td style="text-align:left;">
+toneladas
+</td>
+<td style="text-align:left;">
+Anual (2019)
+</td>
+<td style="text-align:left;">
+Parte de proceso de corte
+</td>
+<td style="text-align:left;">
+Composteo, procesos aeróbicos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vegetal procesado
+</td>
+<td style="text-align:left;">
+Mezcla de vegetales
+</td>
+<td style="text-align:left;">
+8900
+</td>
+<td style="text-align:left;">
+toneladas
+</td>
+<td style="text-align:left;">
+8900
+</td>
+<td style="text-align:left;">
+toneladas
+</td>
+<td style="text-align:left;">
+Anual (2019)
+</td>
+<td style="text-align:left;">
+Proceso
+</td>
+<td style="text-align:left;">
+Composteo, procesos aeróbicos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+otro
+</td>
+<td style="text-align:left;">
+Varios
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+kilogramos
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+kilogramos
+</td>
+<td style="text-align:left;">
+Anual (2019)
+</td>
+<td style="text-align:left;">
+Producto Caduco
+</td>
+<td style="text-align:left;">
+Otro destino (destrucción)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+otro
+</td>
+<td style="text-align:left;">
+Cosecha no levantada
+</td>
+<td style="text-align:left;">
+20000
+</td>
+<td style="text-align:left;">
+toneladas
+</td>
+<td style="text-align:left;">
+20000
+</td>
+<td style="text-align:left;">
+toneladas
+</td>
+<td style="text-align:left;">
+Anual (2019)
+</td>
+<td style="text-align:left;">
+Se pierde la cosecha
+</td>
+<td style="text-align:left;">
+Otro destino (se queda en la tabla)
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>En virtud de lo anterior, se excluye en lo sucesivo para todos los cálculos sobre cantidades de residuos, la información proporcionada por dicha empresa.</p>
+<p><br></p>
+</div>
+<div id="promedio-de-residuos-de-alimentos-sólidos." class="section level2">
+<h2>Promedio de residuos de alimentos sólidos.</h2>
+<p>Una de las variables de mayor interés de la encuesta, por ser uno de los objetivos de la misma, es la estimación de la cantidad promedio de residuos de alimentos generados en las unidades de observación. Para obtenerlo, es necesario realizar el cálculo de los kilogramos por semana que se declaran como residuos y promediarlo.</p>
+<p><br></p>
+<p>Promedio estimado de residuos alimenticios (kg/semana):</p>
+<pre><code>## [1] 79.08867</code></pre>
+<p><br> <br></p>
+</div>
+<div id="residuos-de-alimentos-sólidos-declarados-por-tipo." class="section level2">
+<h2>Residuos de alimentos sólidos declarados por tipo.</h2>
+<p>La gráfica de dispersión de las cantidades declaradas de residuos alimenticios ilustran respecto a la existencia de algunos puntos con valores muy altos que sesgan el promedio.</p>
+<img src="cap3_files/figure-html/graf_r_sem-1.png" width="672" />
+<p align="center">
+<strong>Fuente: INEGI. Prueba Piloto 01 ERAMO 2020</strong>
+</p>
+<p><br></p>
+<p>La misma gráfica, pero diferenciada por tipo de residuo generado muestra lo siguiente:</p>
+<p><img src="cap3_files/figure-html/graf_r_sem2-1.png" width="864" /></p>
+<p><br></p>
+<p>Un análisis más a fondo de los tipos de residuos requiere observar su comportamiento por tamaño del establecimiento. La siguiente gráfica nos muestra dicho comportamiento. En particular, no parece haber mucha diferencia entre la cantidad de residuos declarados en función del tamaño del establecimiento (el valor por encima de la tendencia general en el caso de la categoría <em>31 a 50 personas</em>, corresponde a un solo punto, por lo que no puede ser tomado como tendencia).</p>
+<p><br></p>
+<p><img src="cap3_files/figure-html/graf_r_tam-1.png" width="960" /></p>
+<p><br></p>
+<p align="center">
+<strong>Fuente: INEGI. Prueba Piloto 01 ERAMO 2020</strong>
+</p>
+<p><br> <br></p>
+<p>En el caso de la cantidad de residuos semanales por tipo de unidad de observación, sí parece haber algunas tendencias.</p>
+<p><br></p>
+<img src="cap3_files/figure-html/graf_r_tipouni-1.png" width="960" />
+<p align="center">
+<strong>Fuente: INEGI. Prueba Piloto 01 ERAMO 2020</strong>
+</p>
+<p><br></p>
+<p>En particular, destacan los comercios al por mayor de carnes y verduras, así como los comercios de alimentos en supermercados. Llama la atención también la dispersión de cantidades declaradas en el ramo de restaurantes.</p>
+<p><br> <br></p>
+<p>Finalmente, al comparar las cantidades de residuos por sector de actividad económica, parece haber una clara tendencia a una mayor generación de residuos para los establecimientos del sector primario (téngase en cuenta el caso de “<em>La Huerta</em>”, cuya producción de residuos es mucho mayor que las que aquí se muestran).</p>
+<p><br></p>
+<img src="cap3_files/figure-html/graf_r_sector-1.png" width="960" />
+<p align="center">
+<strong>Fuente: INEGI. Prueba Piloto 01 ERAMO 2020</strong>
+</p>
+<p><br> <br></p>
+</div>
+<div id="causas-de-la-perdida-o-despedicio-de-los-residuos." class="section level2">
+<h2>Causas de la perdida o despedicio de los residuos.</h2>
+<p><br></p>
+<p>Esta variable decidió capturarse de modo abierto, a fin de dejar en manos del informante toda la gama de respuestas posibles. Con ello, se tiene la posibilidad de construir categorías más cercanas a las posibles respuestas de los informantes para un segundo evento de la encuesta.</p>
+<p>El análisis de los textos vertidos en dicha variable revela que un buen porcentaje de los informantes desechan residuos de alimentos como parte del proceso de limpieza o preparación de los mismos, o bien se trata de bagazo o cáscaras que no son comestibles. Solamente un pequeño porcentaje de respuestas menciona que se tratan de desechos o residuos que los clientes no consumen en su totalidad, por lo que ya no son aprovechables para consumo humano. Se presenta una nube de palabras que nos da una idea de conceptos clave al respecto.</p>
+<p><img src="cap3_files/figure-html/wc2-1.png" width="768" /></p>
+<p>Cuyas frecuencias son:</p>
+<p><img src="cap3_files/figure-html/f4-1.png" width="768" /></p>
+<p>Una adecuada observación y clasificación de las respuestas, proveerá una primera versión de categorías precodificadas para usarse en la siguiente prueba.</p>
+<p><br> <br></p>
+</div>
+<div id="destino-de-los-residuos." class="section level2">
+<h2>Destino de los residuos.</h2>
+<p><br></p>
+<p>En cuanto a los destinos declarados, esta pregunta estaba precodificada, y los resultados arrojan la mayor frecuencia en la categoría <em>Otro destino</em>, seguida por <em>Basurero / desperdicio / desecho</em> y <em>Alimentación animal</em>.</p>
+<p><br></p>
+<img src="cap3_files/figure-html/graf_r_destino-1.png" width="960" />
+<p align="center">
+<strong>Fuente: INEGI. Prueba Piloto 01 ERAMO 2020</strong>
+</p>
+<p><br> <br></p>
+<p>En este contexto, dada la frecuencia de respuesta de la opción <em>Otro destino</em>, se vuelve relevante analizar los textos capturados en dicho campo. La herramienta de análisis de textos arroja la siguiente nube de palabras:</p>
+<p><img src="cap3_files/figure-html/wc3-1.png" width="768" /></p>
+<p>Al visualizar las frecuencias de palabras, tanto de esta como de otras preguntas, se hace evidente que se deben crear nuevas categorías para un ejercicio futuro, por ejemplo, “<em>Lo regala/lo dona</em>” o “<em>Lo vende</em>”. Una recodificación del resto de declaraciones incrementaría sin duda algunas de las frecuencias ya existentes, mientras que se hace necesario revalorar la permanencia de otras, como la de “<em>Alcantarillado</em>”.</p>
+<p><br> <br></p>
+</div>
+<div id="observaciones-capturadas." class="section level2">
+<h2>Observaciones capturadas.</h2>
+<p><br></p>
+<p>Como en todo cuestionario, se permite al entrevistador realizar la captura de información complementaria o adicional acerca de detalles sobre la información captada, que a manera de metadatos de campo, permitan aclarar o comprender ciertas situaciones observadas durante la entrevista, que no pueden ser captadas en ninguna variable prevista por el cuestionario mismo.</p>
+<p>Es así que, previamente a la tarea de clasificar y categorizar los textos capturados en este campo destinado a las observaciones, se puede adelantar una primera versión del análisis de frecuencias de palabras en el texto, para dar una idea rápida sobre los contenidos de los comentarios. Los resultados se muestran en la nube de palabras siguiente.</p>
+<p><img src="cap3_files/figure-html/wc4-1.png" width="768" /></p>
+</div>
+<div id="tiempos-de-entrevista." class="section level2">
+<h2>Tiempos de entrevista.</h2>
+<p><br></p>
+<p>Es importante analizar los tiempos de entrevista para una prueba piloto inicial como la de este ejercicio. Conocer los tiempos que un entrevistador requiere para obtener la información en una entrevista, permitirá una planeación realista y objetiva de las cargas de trabajo en un levantamiento definitivo.</p>
+<p>La distribución de tiempos de entrevista se muestra a continuación.</p>
+<p><br></p>
+<p><img src="cap3_files/figure-html/graf_hist_t-1.png" width="960" /></p>
+<p><br> <br></p>
+<p>De la misma forma, se aprecian diferencias cuando el comparativo se realiza entre las unidades de observación agrupadas por tipo de actividad.</p>
+<p><br> <img src="cap3_files/figure-html/graf_tiem_act-1.png" width="960" /></p>
+<p><br></p>
+<p>Destacan los tiempos de entrevista de los hospitales y de las empresas de la industria alimentaria, principalmente.</p>
+<p><br> <br></p>
+</div>
+<div id="mapa-de-establecimientos-entrevistados." class="section level2">
+<h2>Mapa de establecimientos entrevistados.</h2>
+<p><br></p>
+<p>Por último, es de destacar las potencialidades de R como SIG para lectura, visualización, procesamiento y análisis de datos georreferenciados. En el caso de los datos de este proyecto, se tomaron las coordenadas GPS de la mayoría de las unidades de observación visitadas, y con ello puede crearse un mapa con dichos puntos, donde es posible agregar pop-ups con cualquier de información.</p>
+<p>Para generar los mapas en este ejemplo, se usa la librería leaflet (y sus dependencias), la cual enlaza las coordenadas y proyecciones con una base de OpenStreetMap, el cual es un proyecto abierto y colaborativo que brinda herramientas gratuitas para geoprocesamiento, y no tener que depender de costosos programas SIG de licencia como ArcGIS.</p>
+<p><br></p>
+<div id="htmlwidget-303d5664d0ae92b3b8c7" style="width:100%;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-303d5664d0ae92b3b8c7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"fullscreenControl":{"position":"topleft","pseudoFullscreen":false}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[21.9140582,21.8848585,21.8536546,21.873013,21.9142278,21.8736229,21.883947,21.8817208,21.889178,21.83171517,21.87221454,21.9127756,21.8534337,21.85468667,21.8789067,21.884544,21.87438001,22.07547764,21.8535169,21.8476114,21.89389338,21.873523,21.87292877,21.86604434,21.892922,21.89342,21.8705926,21.8976866,21.97084522,21.86585,21.83183902,21.8977521,21.87395488,21.8457527,21.891255,21.86710845,21.832729,21.87355801,22.07807005,21.8818835,21.864824,21.878899,21.83117112,21.8677651,21.8974806,21.8474185,21.887427,21.86252975,21.8688509,21.9134743,21.87409416,21.889248,21.8561894,21.83192167,21.9129091,22.094422,21.8631741,21.97088833,21.96942,21.9143172,21.8474967,21.85889895,21.8357704,21.97054333,21.9129949,21.885421,21.88444376,21.8786331,21.87236987,21.87383811,21.891255,21.8821555,21.87362319,21.9142214,21.98507667,21.85586831,21.86463125,21.87609486,21.87421587,21.8867585,21.83155333,21.8781715,21.9129,21.9129757,21.90048368,21.8921653,21.8561865,21.8734884,21.85573,21.86436167,21.848238,21.89324791,21.8729224,21.891255,22.094153,21.8770971,21.8532396,21.8672487,21.87397903,21.86457333,21.84554,21.9128481,21.8848217,21.83189085,21.865875],[-102.2969379,-102.295712,-102.303157,-102.258364,-102.2939875,-102.2698993,-102.297148,-102.2841403,-102.251683,-102.2897383,-102.3189775,-102.2937565,-102.2620535,-102.2940533,-102.3006284,-102.2970599,-102.2553009,-102.2734484,-102.2620294,-102.7184263,-102.306785,-102.246435,-102.330022,-102.3008245,-102.274951,-102.315619,-102.3227948,-102.2870059,-102.2914816,-102.2994267,-102.2891207,-102.3041346,-102.3333831,-102.7194654,-102.272467,-102.2836581,-102.289223,-102.2758133,-102.272662,-102.2840963,-102.2693975,-102.2928619,-102.2906638,-102.2737074,-102.3126608,-102.299843,-102.272637,-102.2806214,-102.3083086,-102.2942285,-102.2759961,-102.273591,-102.2812417,-102.2905417,-102.2935225,-102.296407,-102.2828526,-102.2924317,-102.2908033,-102.2923796,-102.3000252,-102.2606967,-102.2846688,-102.2913167,-102.2950247,-102.2877447,-102.2972041,-102.3124368,-102.3048973,-102.2682923,-102.272467,-102.2839497,-102.3343071,-102.2942463,-102.2679067,-102.2813978,-102.2854657,-102.2545834,-102.2680498,-102.2727542,-102.2902117,-102.2934619,-102.2934723,-102.2952578,-102.3053276,-102.3059788,-102.2812687,-102.2785687,-102.282932,-102.2843183,-102.7026447,-102.2706673,-102.2680759,-102.272467,-102.296223,-102.2816117,-102.2620415,-102.3244854,-102.2669147,-102.2983567,-102.720075,-102.2929688,-102.2957781,-102.2913842,-102.313539],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<strong>ID_DENUE: <\/strong>25611<\/br><strong>ESTABLECIMIENTO: <\/strong>TENABRI S DE RL DE CV<\/br><strong>ACTIVIDAD: <\/strong>Cultivo de frutas / vegetales","<strong>ID_DENUE: <\/strong>99999134<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>40833<\/br><strong>ESTABLECIMIENTO: <\/strong>TACOS DE CANASTA SI SEÑOR<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>28013<\/br><strong>ESTABLECIMIENTO: <\/strong>MINISÚPER DON BARATÓN<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor en minisupers","<strong>ID_DENUE: <\/strong>11999<\/br><strong>ESTABLECIMIENTO: <\/strong>COMERCIO AL POR MAYOR DE FRUTAS Y VERDURAS FRESCAS<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>99999535<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>36324<\/br><strong>ESTABLECIMIENTO: <\/strong>CREMERIA NUEVA TERAN<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de leche, otros productos lácteos y embutidos","<strong>ID_DENUE: <\/strong>20562<\/br><strong>ESTABLECIMIENTO: <\/strong>OBRADOR SAN FERNANDO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>52082<\/br><strong>ESTABLECIMIENTO: <\/strong>PASTELERÍA MARIANETT<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de otros alimentos","<strong>ID_DENUE: <\/strong>9016<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTAS Y LEGUMBRES SIN NOMBRE<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>6311718<\/br><strong>ESTABLECIMIENTO: <\/strong>BA EXPRESS FRACC DEL VALLE 5409<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor en supermercados","<strong>ID_DENUE: <\/strong>12283<\/br><strong>ESTABLECIMIENTO: <\/strong>CREMERIA DE ALBA AGROPECUARIO S DE RL DE CV<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos ","<strong>ID_DENUE: <\/strong>14502<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTERÍA EL CALÍ<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>6281950<\/br><strong>ESTABLECIMIENTO: <\/strong>CHEDRAUI AGUASCALIENTES ASUNCIÓN<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor en supermercados","<strong>ID_DENUE: <\/strong>6875974<\/br><strong>ESTABLECIMIENTO: <\/strong>DURAZNOS MONTE REAL<\/br><strong>ACTIVIDAD: <\/strong>Cultivo de frutas / vegetales","<strong>ID_DENUE: <\/strong>19033<\/br><strong>ESTABLECIMIENTO: <\/strong>PESCADERÍA PUERTO VALLARTA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de pescados y mariscos","<strong>ID_DENUE: <\/strong>6282263<\/br><strong>ESTABLECIMIENTO: <\/strong>OXXO SUC. 50PEE-PERALES AGU<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor en minisupers","<strong>ID_DENUE: <\/strong>48987<\/br><strong>ESTABLECIMIENTO: <\/strong>TACOS EL PATRÓN<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>14490<\/br><strong>ESTABLECIMIENTO: <\/strong>CARNICERÍA EL 4<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>41438<\/br><strong>ESTABLECIMIENTO: <\/strong>TORTILLERÍA EL ANDADOR<\/br><strong>ACTIVIDAD: <\/strong>Elaboración de tortillas de maíz y molienda de nixtamal","<strong>ID_DENUE: <\/strong>16469<\/br><strong>ESTABLECIMIENTO: <\/strong>PASTELERÍA SAN ÁNGEL<\/br><strong>ACTIVIDAD: <\/strong>Panificación tradicional / Elaboración de galletas y pastas para sopa ","<strong>ID_DENUE: <\/strong>29226<\/br><strong>ESTABLECIMIENTO: <\/strong>ACUÍCOLA SANTA ROSA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de pescados y mariscos","<strong>ID_DENUE: <\/strong>1249<\/br><strong>ESTABLECIMIENTO: <\/strong>BIRRIERÍA LOS PEPES<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>99999331<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>7565<\/br><strong>ESTABLECIMIENTO: <\/strong>LA CASA ROSA<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>1819<\/br><strong>ESTABLECIMIENTO: <\/strong>CENDI OLIVARES SANTANA<\/br><strong>ACTIVIDAD: <\/strong>Guarderías del sector privado o público","<strong>ID_DENUE: <\/strong>41280<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTERÍA CALIFORNIA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>35672<\/br><strong>ESTABLECIMIENTO: <\/strong>VENTA DE MOLE EN POLVO SIN NOMBRE<\/br><strong>ACTIVIDAD: <\/strong>Industria alimentaria","<strong>ID_DENUE: <\/strong>6709385<\/br><strong>ESTABLECIMIENTO: <\/strong>OBRADOR VIÑEDOS<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>99999330<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>9013<\/br><strong>ESTABLECIMIENTO: <\/strong>GORDITAS GABY<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>6282167<\/br><strong>ESTABLECIMIENTO: <\/strong>STAR MEDICA SA DE CV<\/br><strong>ACTIVIDAD: <\/strong>Hospitales generales del sector privado o público","<strong>ID_DENUE: <\/strong>6282325<\/br><strong>ESTABLECIMIENTO: <\/strong>OXXO SUC. 50AUA-ABELARDORODRIGUEZAGU<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor en minisupers","<strong>ID_DENUE: <\/strong>569<\/br><strong>ESTABLECIMIENTO: <\/strong>PANADERÍA DON EMILIANO<\/br><strong>ACTIVIDAD: <\/strong>Panificación tradicional / Elaboración de galletas y pastas para sopa ","<strong>ID_DENUE: <\/strong>8221<\/br><strong>ESTABLECIMIENTO: <\/strong>COFFEE DHAY<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>5688<\/br><strong>ESTABLECIMIENTO: <\/strong>CENTRO MÉDICO LA SALUD<\/br><strong>ACTIVIDAD: <\/strong>Hospitales generales del sector privado o público","<strong>ID_DENUE: <\/strong>8974<\/br><strong>ESTABLECIMIENTO: <\/strong>CARNES TEPEYAC<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>99999533<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>25930<\/br><strong>ESTABLECIMIENTO: <\/strong>JUGOS Y LICUADOS LOS PANCHOS<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>20185<\/br><strong>ESTABLECIMIENTO: <\/strong>POLLERÍA EL GALLO DE ORO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>13473<\/br><strong>ESTABLECIMIENTO: <\/strong>CARNICERÍA NAJERA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>99999528<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>9000<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTERÍA PÉREZ<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>13347<\/br><strong>ESTABLECIMIENTO: <\/strong>ESTANCIA DE BIENESTAR INFANTIL ISSSSPEA<\/br><strong>ACTIVIDAD: <\/strong>Guarderías del sector privado o público","<strong>ID_DENUE: <\/strong>40243<\/br><strong>ESTABLECIMIENTO: <\/strong>SEMILLAS Y CEREALES LA HORMIGUITA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de semillas y granos alimenticios, especias y chiles secos","<strong>ID_DENUE: <\/strong>9468<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTERÍA DON BOSCO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>8292<\/br><strong>ESTABLECIMIENTO: <\/strong>SEMILLAS Y CEREALES GARCÍA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de semillas y granos alimenticios, especias y chiles secos","<strong>ID_DENUE: <\/strong>34567<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTERÍA LOS COMPADRES<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>4899<\/br><strong>ESTABLECIMIENTO: <\/strong>ESTANCIA DE BIENESTAR INFANTIL 21<\/br><strong>ACTIVIDAD: <\/strong>Guarderías del sector privado o público","<strong>ID_DENUE: <\/strong>24392<\/br><strong>ESTABLECIMIENTO: <\/strong>POLLERÍA LA PRINCIPAL<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>99999534<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>51657<\/br><strong>ESTABLECIMIENTO: <\/strong>CARNICERÍA LALO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>6322<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>9015<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTAS Y VERDURAS SG<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>12291<\/br><strong>ESTABLECIMIENTO: <\/strong>EMPACADORA SAN FRANCISCO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de otros alimentos","<strong>ID_DENUE: <\/strong>6758020<\/br><strong>ESTABLECIMIENTO: <\/strong>VINÍCOLA SANTA ELENA DE AGUASCALIENTES SA DE CV<\/br><strong>ACTIVIDAD: <\/strong>Bebidas","<strong>ID_DENUE: <\/strong>6281495<\/br><strong>ESTABLECIMIENTO: <\/strong>LA GRANJA DE MANOLO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de carnes","<strong>ID_DENUE: <\/strong>49786<\/br><strong>ESTABLECIMIENTO: <\/strong>CHARLIS FRUIT<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>49779<\/br><strong>ESTABLECIMIENTO: <\/strong>CHICHARONERA LOS AZULEJOS<\/br><strong>ACTIVIDAD: <\/strong>Industria alimentaria","<strong>ID_DENUE: <\/strong>25805<\/br><strong>ESTABLECIMIENTO: <\/strong>CARNES SUPREMA EL RECREO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>9480<\/br><strong>ESTABLECIMIENTO: <\/strong>SUPER POLLERIAS KILO POLLO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>30783<\/br><strong>ESTABLECIMIENTO: <\/strong>EVENTOS Y BANQUETES MUROS<\/br><strong>ACTIVIDAD: <\/strong>Servicios de preparación de alimentos para ocasiones especiales","<strong>ID_DENUE: <\/strong>6850390<\/br><strong>ESTABLECIMIENTO: <\/strong>OXXO SUC. 50H9U-CAROLINA VILLANUEVA AGU<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor en minisupers","<strong>ID_DENUE: <\/strong>99999003<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>12227<\/br><strong>ESTABLECIMIENTO: <\/strong>ESPECIAS MOY<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos ","<strong>ID_DENUE: <\/strong>20089<\/br><strong>ESTABLECIMIENTO: <\/strong>INTEGRALES VIVA MÁS<\/br><strong>ACTIVIDAD: <\/strong>Panificación tradicional / Elaboración de galletas y pastas para sopa ","<strong>ID_DENUE: <\/strong>36357<\/br><strong>ESTABLECIMIENTO: <\/strong>POLLERÍA EL GÜUERO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>99999540<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>4510<\/br><strong>ESTABLECIMIENTO: <\/strong>CREMERÍA LAS FLORES<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de leche, otros productos lácteos y embutidos","<strong>ID_DENUE: <\/strong>99999536<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>27688<\/br><strong>ESTABLECIMIENTO: <\/strong>RESTAURANTE SHING WANG<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>20163<\/br><strong>ESTABLECIMIENTO: <\/strong>PUESTO DE VERDURA SIN NOMBRE<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>1168<\/br><strong>ESTABLECIMIENTO: <\/strong>CARNITAS SAN PANCHO<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>10959<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>6280911<\/br><strong>ESTABLECIMIENTO: <\/strong>LA HUERTA<\/br><strong>ACTIVIDAD: <\/strong>Industria alimentaria","<strong>ID_DENUE: <\/strong>34165<\/br><strong>ESTABLECIMIENTO: <\/strong>POLLERÍA ARA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>5762<\/br><strong>ESTABLECIMIENTO: <\/strong>SÚPER MARKET LAS FUENTES<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor en minisupers","<strong>ID_DENUE: <\/strong>10355<\/br><strong>ESTABLECIMIENTO: <\/strong>CLÍNICA HOSPITAL NÚMERO 2<\/br><strong>ACTIVIDAD: <\/strong>Hospitales generales del sector privado o público","<strong>ID_DENUE: <\/strong>99999537<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>8295<\/br><strong>ESTABLECIMIENTO: <\/strong>RESTAURANTE CARNITAS MORA<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>34097<\/br><strong>ESTABLECIMIENTO: <\/strong>POLLERÍA POLLOS TALIVAN<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>99999529<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>12247<\/br><strong>ESTABLECIMIENTO: <\/strong>ATLÁNTICO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de pescados y mariscos","<strong>ID_DENUE: <\/strong>6281404<\/br><strong>ESTABLECIMIENTO: <\/strong>PRODUCTORA AVICOLA DEL CENTRO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de carnes","<strong>ID_DENUE: <\/strong>18290<\/br><strong>ESTABLECIMIENTO: <\/strong>CARNICERÍA LA MINGA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>16543<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTERÍA Y VERDULERÍA LA GÜERA<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>497861<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>24216<\/br><strong>ESTABLECIMIENTO: <\/strong>ESTANCIA DE BIENESTAR Y DESARROLLO INFANTIL NÚMERO 102<\/br><strong>ACTIVIDAD: <\/strong>Guarderías del sector privado o público","<strong>ID_DENUE: <\/strong>99999005<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>34261<\/br><strong>ESTABLECIMIENTO: <\/strong>MEAT & FISH<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de pescados y mariscos","<strong>ID_DENUE: <\/strong>937<\/br><strong>ESTABLECIMIENTO: <\/strong>LONCHERÍA BOULEVARD<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>8249<\/br><strong>ESTABLECIMIENTO: <\/strong>FRUTAS FINAS VALENCIANO<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de frutas y verduras frescas","<strong>ID_DENUE: <\/strong>99999539<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>8225<\/br><strong>ESTABLECIMIENTO: <\/strong>RESTAURANTE KIMURA<\/br><strong>ACTIVIDAD: <\/strong>Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","<strong>ID_DENUE: <\/strong>6758020<\/br><strong>ESTABLECIMIENTO: <\/strong>VINÍCOLA SANTA ELENA DE AGUASCALIENTES SA DE CV<\/br><strong>ACTIVIDAD: <\/strong>Bebidas","<strong>ID_DENUE: <\/strong>99999532<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>14501<\/br><strong>ESTABLECIMIENTO: <\/strong>POLLERÍA MARTÍNEZ<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por menor de carnes rojas / aves ","<strong>ID_DENUE: <\/strong>41320<\/br><strong>ESTABLECIMIENTO: <\/strong>ESTANCIA INFANTIL PEQUEÑOS TRAVIESOS<\/br><strong>ACTIVIDAD: <\/strong>Guarderías del sector privado o público","<strong>ID_DENUE: <\/strong>99999538<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>99999329<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>551<\/br><strong>ESTABLECIMIENTO: <\/strong>TORTILLERÍA LA PLANTA<\/br><strong>ACTIVIDAD: <\/strong>Elaboración de tortillas de maíz y molienda de nixtamal","<strong>ID_DENUE: <\/strong>12241<\/br><strong>ESTABLECIMIENTO: <\/strong>BODEGA SAN JUAN<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos ","<strong>ID_DENUE: <\/strong>99999133<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA","<strong>ID_DENUE: <\/strong>34012<\/br><strong>ESTABLECIMIENTO: <\/strong>GONVI PROCESADORA Y COMERCIALIZADORA DE CARNES Y VISCERAS<\/br><strong>ACTIVIDAD: <\/strong>Comercio al por mayor de carnes","<strong>ID_DENUE: <\/strong>99999007<\/br><strong>ESTABLECIMIENTO: <\/strong>NA<\/br><strong>ACTIVIDAD: <\/strong>NA"],null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[21.88418,-102.29584],10,[]],"limits":{"lat":[21.83117112,22.094422],"lng":[-102.720075,-102.246435]}},"evals":[],"jsHooks":[]}</script>
+<p align="center">
+<strong>Mapa de Establecimientos Entrevistados en Aguascalientes en la PP ERAMO 2020</strong>
+</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Metodología</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="site_libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Proyecto Final de Programación <br>Raúl Mejía González</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Presentación
+  </a>
+</li>
+<li>
+  <a href="cap1.html">
+    <span class="fa fa-tasks"></span>
+     
+    Metodología
+  </a>
+</li>
+<li>
+  <a href="cap2.html">
+    <span class="fa fa-building"></span>
+     
+    Procesamiento
+  </a>
+</li>
+<li>
+  <a href="cap3.html">
+    <span class="fa fa-bar-chart"></span>
+     
+    Resultados
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore"><strong>Metodología</strong></h1>
+
+</div>
+
+
+<div class="text-justify">
+<p><br></p>
+<p>Como puede observarse del apartado anterior, se ha dispuesto de un conjunto de tablas descargadas de la plataforma <em>Survey Solutions</em>, que se descargan en una carpeta denominada <em>bd_captura</em>. A esta versión de la base de datos de captura, que aún se encuentra sin depurar, se le aplicarán los tratamientos de validación y procesamiento que se describen más adelante y que dan origen a una nueva versión de la base de datos lista para su explotación, y que se aloja en una nueva carpeta denominada <em>bd_explot</em>.</p>
+<p>Se tienen también las tablas en formato <strong>csv</strong> que fueron el resultado de ir construyendo previo al operativo, los listados de entrevistadores, coordinadores grupos de capacitación, así como las descripciones de las asignaciones a los servidores, claves de acceso, datos telefónicos, etc. Estas tablas se encuentran en una carpeta denominada <em>bd_operativa</em>.</p>
+<p>Con las tablas depuradas de las carpetas <em>bd_explot</em> y <em>bd_operativa</em>, se construyó una base de datos en SQLite. Con SQLite se fueron importando todas estas tablas <em>csv</em> e integrándolas en una base de datos llamada <strong>pp_eramo2020.db</strong>. El detalle de la descripción de esta base de datos “completa” (FD), se incluye más adelante.</p>
+<p>La construcción de la base de datos <em>pp_eramo2020.db</em> obedece más a un aspecto formal de conceptualizarla como la base de datos <em>integrada</em> del proyecto, que a una necesidad real para la generación de resultados. Como se verá más adelante, para efectos de explotación y generación de indicadores y datos, resulta poco práctico recurrir a dicha base de datos formal, pues no es con SQL que se desarrollan los cálculos y elaboran los resultados, sino con R, a partir de las propias tablas <em>csv</em> que se tienen en <em>bd_explot</em>, para generar todos los cálculos necesarios.</p>
+<p>R, y desde luego Python, presentan muchas más potencialidades estadísticas y herramientas para generar resultados rápidos y atractivos en forma gráfica o tabular (elementos dinámicos), así como mapas interactivos. Para esto último se han empleado las potencialidades de R como software para gestión de sistemas de información geográfica (SIG) mediante el desarrollo de mapeo usando herramientas de desarrollo abiertas como OpenStreetMap, a través de la librería <em>leaflet</em>.</p>
+<p>Hacia el final, sólo para ejemplificar el uso de SQL se realizan y muestran algunas consultas posibles desde la base de datos <em>pp_eramo2020.db</em>.</p>
+<p>Un aspecto importante a considerar es que que, dado el escaso tiempo con que se contó para realizar este procesamiento y obtención de resultados, de acuerdo con los tiempos del levantamiento ya referidos respecto a la fecha de entrega del proyecto, ha sido necesario generar una vista limitada de la base de datos de captura, con fecha del 15 de noviembre, a efecto de tener tiempo para generar algunos indicadores representativos de interés para la encuesta, así como algunas consultas, gráficas y mapas para complementar el presente reporte web de resultados.</p>
+<p>La salida del reporte del proyecto se hace con la libreria <em>RMarkdown</em>. A efecto de presentar un reporte que pueda incluir elementos dinámicos, se pensó en una salida en formato <em>html</em> en forma de un micrositio web (bookdown), en lugar de la tradicional salida a pdf, que por otra parte al ser estática no permite visualizar elementos dinámicos como se muestran aquí.</p>
+<p>Por otra parte, dado que este proyecto se pretende construir bajo la filosofía de <a href="https://book.fosteropenscience.eu/es/02OpenScienceBasics/04ReproducibleResearchAndDataAnalysis.html" target="_blank_"><em>investigación reproducible</em></a>, así como para cumplir con las expectativas de transparencia que la normativa institucional demanda, se entrega al final no sólo el sitio <em>html</em> final, sino todo el código con el que se construye, así como la carpeta de materiales y base de datos que le dieron origen.</p>
+<p>Lo anterior permitirá a quien revise el proyecto reproducir completamente los resultados descritos en el reporte. Esta es precisamente la idea: aumentar el rigor y la calidad de los trabajos y, por tanto, incrementar la confianza en los resultados bajo altos estándares de integridad. Se trata de una filosofía de desarrollo basada en compartir conocimientos y experiencias con otros, en la búsqueda de crear redes de participación colaborativa útiles para todos.</p>
+<p>Por lo demás, la metodología del procesamiento y explotación se irá relatando conforme se avance a dichos apartados.</p>
+<p><br> <br></p>
+<h2 id="consideraciones-importantes-sobre-la-base-de-datos.">Consideraciones importantes sobre la Base de Datos.</h2>
+<p><br></p>
+<p>Es menester aclarar en este apartado algunas consideraciones a tomar en cuenta respecto a las acotaciones que este análisis presenta para el proyecto.</p>
+<ol style="list-style-type: decimal">
+<li><p>Como ya se mencionó, fue necesario realizar un corte de lo recabado en la base de datos del levantamiento al día 15 de noviembre del presente, ya que el periodo de captación de datos en campo se prolongará hasta el 27 de noviembre. Esto para poder contar con algunos datos de entrevistas reales y tener un tiempo suficiente (una semana al menos) para poder elaborar este reporte y entregar aunque sea algunos resultados parciales del mismo. En todo caso, se dispondrá de una vista aproximada de lo que será el levantamiento completo.</p></li>
+<li><p>Para efecto de simplificar el análisis, únicamente he descargado de la base de datos de captura las entrevistas realizadas en el estado de Aguascalientes, pues no deseo mostrar resultados mucho más dispersos a nivel regional o nacional, sino en todo caso poder mostrar mapas más concentrados de establecimientos en una región donde se pueden visualizar mucho mejor, debido a su cercanía entre sí.</p></li>
+<li><p>De los dos tipos de cuestionarios: de unidades agropecuarias y de establecimientos, he elegido mostrar los resultados de este último, ya que son los más numerosos. Es necesario aclarar que si bien se cuenta con cuestionarios de la parte agropecuaria, son mucho más escasos, debido a la poca respuesta de los informantes en las zonas agrícolas. Por ello, y para efectos de poder mostrar ciertos indicadores, he preferido usar una muestra de lo captado en establecimientos que es más numerosa. El filtrado de estos cuestionarios se hace también directamente en el administrador del servidor de Survey Solutions.</p></li>
+</ol>
+<p><br></p>
+<div class="figure" style="text-align: center">
+<img src="archivos/vista_servidor.png" alt="**Vista del servidor de la plataforma Survey Solutions**" width="95%" />
+<p class="caption">
+<strong>Vista del servidor de la plataforma Survey Solutions</strong>
+</p>
+</div>
+<p><br> <br> <br></p>
+<h2 id="definición-de-la-muestra.">Definición de la muestra.</h2>
+<p><br></p>
+<p>Se definió una muestra que incorporara las clases de actividad relacionadas con alimentos, tomando como base el Directorio Estadístico Nacional de unidades de observación (DENUE). Con base en ello, se hizo una muestra de 106 unidades económicas fijas para el estado de Aguascalientes que se presenta a continuación.</p>
+<p>Cabe aclarar que adicionalmente a la muestra, se captaron hasta el momento del corte 31 establecimientos semifijos o ambulantes relacionados con alimentos.</p>
+<p><br></p>
+<div id="htmlwidget-82835b3835e61650020b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-82835b3835e61650020b">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"551\" data-max=\"99999540\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;ACUÍCOLA SANTA ROSA&quot;,&quot;AGUAS FRESCAS Y GORDITAS DE NATA&quot;,&quot;ALMUERZOS Y COMIDAS CONCHITA&quot;,&quot;ANTOJOS MARCE PUESTO ESQUINA&quot;,&quot;ATLÁNTICO&quot;,&quot;BA EXPRESS FRACC DEL VALLE 5409&quot;,&quot;BANQUETES JOMAR&quot;,&quot;BANQUETES LOS PIRULES&quot;,&quot;BIRRIERÍA DON LENCHO&quot;,&quot;BIRRIERÍA LOS PEPES&quot;,&quot;BIRRIERÍA PUESTO DE LA CALLE&quot;,&quot;BODEGA SAN JUAN&quot;,&quot;BODEGA SANTA ANITA 3905&quot;,&quot;BUÑUELOS DE JARDIN SAN MARCOS&quot;,&quot;CAMARONES ENVARASADOS&quot;,&quot;CARNES SUPREMA EL RECREO&quot;,&quot;CARNES TEPEYAC&quot;,&quot;CARNICERÍA EL 4&quot;,&quot;CARNICERÍA LA MINGA&quot;,&quot;CARNICERÍA LALO&quot;,&quot;CARNICERÍA NAJERA&quot;,&quot;CARNITAS SAN PANCHO&quot;,&quot;CASA RENTERIA&quot;,&quot;CENDI OLIVARES SANTANA&quot;,&quot;CENDI REFORMA&quot;,&quot;CENTRO ACUÍCOLA PABELLON DE HIDALGO&quot;,&quot;CENTRO DE DESARROLLO INFANTIL CHISPA, A.C.&quot;,&quot;CENTRO MÉDICO LA SALUD&quot;,&quot;CENTRO PEDAGÓGICO INFANTIL SORNISA MÁGICA&quot;,&quot;CHARLIS FRUIT&quot;,&quot;CHASKAS PUESTO CALLE&quot;,&quot;CHEDRAUI AGUASCALIENTES ASUNCIÓN&quot;,&quot;CHICHARONERA LOS AZULEJOS&quot;,&quot;CHICHARONES Y DUROS&quot;,&quot;CLÍNICA HOSPITAL NÚMERO 2&quot;,&quot;COFFEE DHAY&quot;,&quot;COMERCIO AL POR MAYOR DE FRUTAS Y VERDURAS FRESCAS&quot;,&quot;CREMERIA DE ALBA AGROPECUARIO S DE RL DE CV&quot;,&quot;CREMERÍA LAS FLORES&quot;,&quot;CREMERIA NUEVA TERAN&quot;,&quot;DORICHASKAS Y SALCHIPULPOS DE LAS FERIAS&quot;,&quot;DORILOCOS CARMEN&quot;,&quot;DURAZNOS MONTE REAL&quot;,&quot;DUROS PREPARADOS&quot;,&quot;EL POLLO GRIEGO&quot;,&quot;EMPACADORA CRISTONEGRO&quot;,&quot;EMPACADORA EL CENTENARIO, S.A. DE C.V.&quot;,&quot;EMPACADORA SAN FRANCISCO&quot;,&quot;ESPECIAS MOY&quot;,&quot;ESTANCIA DE BIENESTAR INFANTIL 21&quot;,&quot;ESTANCIA DE BIENESTAR INFANTIL ISSSSPEA&quot;,&quot;ESTANCIA DE BIENESTAR Y DESARROLLO INFANTIL NÚMERO 102&quot;,&quot;ESTANCIA INFANTIL PEQUEÑOS TRAVIESOS&quot;,&quot;EVENTOS Y BANQUETES MUROS&quot;,&quot;FRUTAS EN VASO&quot;,&quot;FRUTAS FINAS VALENCIANO&quot;,&quot;FRUTAS Y JUGOS AMBULANTE&quot;,&quot;FRUTAS Y LEGUMBRES SIN NOMBRE&quot;,&quot;FRUTAS Y VERDURAS SG&quot;,&quot;FRUTAS Y VERDURAS Y LEGUMBRES&quot;,&quot;FRUTERÍA CALIFORNIA&quot;,&quot;FRUTERÍA DON BOSCO&quot;,&quot;FRUTERÍA EL CALÍ&quot;,&quot;FRUTERÍA LOS COMPADRES&quot;,&quot;FRUTERÍA PÉREZ&quot;,&quot;FRUTERÍA Y VERDULERÍA LA GÜERA&quot;,&quot;GONVI PROCESADORA Y COMERCIALIZADORA DE CARNES Y VISCERAS&quot;,&quot;GORDAS DE HUGO&quot;,&quot;GORDITAS AMBULANTE&quot;,&quot;GORDITAS GABY&quot;,&quot;HAMBURGUESAS Y HOTDOGS&quot;,&quot;HAMBURGUESAS Y PAPAS&quot;,&quot;HELADOS, PALETAS Y AGUAS&quot;,&quot;HOTDOGS&quot;,&quot;INTEGRALES VIVA MÁS&quot;,&quot;INVERNADEROS MESA GRANDE&quot;,&quot;JUGOS DE FRUTAS Y AGUAS&quot;,&quot;JUGOS Y LICUADOS LOS PANCHOS&quot;,&quot;LA CASA ROSA&quot;,&quot;LA GRANJA DE MANOLO&quot;,&quot;LA HUERTA&quot;,&quot;LECHE 19 DIECINUEVE HERMANOS SA DE CV&quot;,&quot;LICUADOS&quot;,&quot;LICUADOS Y JUGOS DE LA CENTRAL&quot;,&quot;LONCHERÍA BOULEVARD&quot;,&quot;LONCHERÍA Y JUGOS EL PERICO&quot;,&quot;MEAT &amp; FISH&quot;,&quot;MENUDOS CHELA&quot;,&quot;MINISÚPER DON BARATÓN&quot;,&quot;MOLINO Y TORTILLERÍA SANTA TERESITA&quot;,&quot;OBRADOR SAN FERNANDO&quot;,&quot;OBRADOR VIÑEDOS&quot;,&quot;ONE AGUASCALIENTES SUR&quot;,&quot;OXXO SUC. 50AUA-ABELARDORODRIGUEZAGU&quot;,&quot;OXXO SUC. 50H9U-CAROLINA VILLANUEVA AGU&quot;,&quot;OXXO SUC. 50PEE-PERALES AGU&quot;,&quot;PALOMITAS Y ANTOJOS DE FERIA&quot;,&quot;PANADERÍA DON EMILIANO&quot;,&quot;PANADERÍA JARDINES&quot;,&quot;PAPAS FRTITAS&quot;,&quot;PAPAS Y BANDERILLAS&quot;,&quot;PASTELERÍA MARIANETT&quot;,&quot;PASTELERÍA SAN ÁNGEL&quot;,&quot;PESCADERÍA PUERTO VALLARTA&quot;,&quot;POLLERÍA ARA&quot;,&quot;POLLERÍA EL GALLO DE ORO&quot;,&quot;POLLERÍA EL GÜUERO&quot;,&quot;POLLERÍA LA PRINCIPAL&quot;,&quot;POLLERÍA MARTÍNEZ&quot;,&quot;POLLERÍA POLLOS TALIVAN&quot;,&quot;POTRERO DE SAN ANTONIO&quot;,&quot;PRODUCTORA AVICOLA DEL CENTRO&quot;,&quot;PUESTO DE VERDURA SIN NOMBRE&quot;,&quot;QUESADILLAS DE GUISADOS&quot;,&quot;RESTAURANTE CARNITAS MORA&quot;,&quot;RESTAURANTE KIMURA&quot;,&quot;RESTAURANTE SHING WANG&quot;,&quot;SEMILLAS Y CEREALES GARCÍA&quot;,&quot;SEMILLAS Y CEREALES LA HORMIGUITA&quot;,&quot;STAR MEDICA SA DE CV&quot;,&quot;SÚPER MARKET LAS FUENTES&quot;,&quot;SUPER POLLERIAS KILO POLLO&quot;,&quot;SUPERCENTER AGUASCALIENTES ORIENTE 2271&quot;,&quot;TACOS AL PASTOR CARRETERA SLP&quot;,&quot;TACOS DE BIRRIA&quot;,&quot;TACOS DE CANASTA BICICLETA&quot;,&quot;TACOS DE CANASTA SI SEÑOR&quot;,&quot;TACOS DE COLORES&quot;,&quot;TACOS EL PATRÓN&quot;,&quot;TAMALES CARRITO MOVIL&quot;,&quot;TAMALES OAXAQUEÑOS&quot;,&quot;TAQUERIA &quot;,&quot;TENABRI S DE RL DE CV&quot;,&quot;TORTAS MEGA&quot;,&quot;TORTILLERÍA EL ANDADOR&quot;,&quot;TORTILLERÍA LA PLANTA&quot;,&quot;VENTA DE MOLE EN POLVO SIN NOMBRE&quot;,&quot;VINÍCOLA SANTA ELENA DE AGUASCALIENTES SA DE CV&quot;,&quot;VÍSCERAS DON JUAN&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"111216\" data-max=\"722515\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;0 a 5 personas&quot;,&quot;101 a 250 personas&quot;,&quot;11 a 30 personas&quot;,&quot;251 y más personas&quot;,&quot;31 a 50 personas&quot;,&quot;51 a 100 personas&quot;,&quot;6 a 10 personas&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Aguascalientes&quot;,&quot;Calvillo&quot;,&quot;Jesús María&quot;,&quot;Pabellón de Arteaga&quot;,&quot;Rincón de Romos&quot;,&quot;San Francisco de los Romo&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Ambulante&quot;,&quot;Fijo&quot;,&quot;Semifijo&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;No aplica&quot;,&quot;Primario&quot;,&quot;Secundario&quot;,&quot;Terciario&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Bebidas&quot;,&quot;Comercio al por mayor de carnes&quot;,&quot;Comercio al por mayor de frutas y verduras frescas&quot;,&quot;Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos &quot;,&quot;Comercio al por menor de carnes rojas / aves &quot;,&quot;Comercio al por menor de frutas y verduras frescas&quot;,&quot;Comercio al por menor de leche, otros productos lácteos y embutidos&quot;,&quot;Comercio al por menor de otros alimentos&quot;,&quot;Comercio al por menor de pescados y mariscos&quot;,&quot;Comercio al por menor de semillas y granos alimenticios, especias y chiles secos&quot;,&quot;Comercio al por menor en minisupers&quot;,&quot;Comercio al por menor en supermercados&quot;,&quot;Cultivo de frutas / vegetales&quot;,&quot;Elaboración de tortillas de maíz y molienda de nixtamal&quot;,&quot;Guarderías del sector privado o público&quot;,&quot;Hospitales generales del sector privado o público&quot;,&quot;Hoteles&quot;,&quot;Industria alimentaria&quot;,&quot;No aplica&quot;,&quot;Panificación tradicional / Elaboración de galletas y pastas para sopa &quot;,&quot;Piscicultura / acuicultura&quot;,&quot;Restaurantes / servicio de preparación de alimentos / Cafeterías y similares&quot;,&quot;Servicios de preparación de alimentos para ocasiones especiales&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;E010101&quot;,&quot;E010102&quot;,&quot;E010103&quot;,&quot;E010104&quot;,&quot;E010105&quot;,&quot;E010106&quot;,&quot;E010107&quot;,&quot;E010108&quot;,&quot;E010109&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140"],[25611,6875974,6886730,6166235,6166248,6280911,35082,35672,49755,49779,569,16469,20089,551,1356,41438,6758020,34012,6281495,6281404,9016,11999,49786,6282383,12227,12241,12283,6281620,8974,13473,14490,18290,20562,25805,51653,51657,6709385,6394,9480,14501,20185,24392,34097,34165,36357,12247,19033,29226,34261,8249,9000,9015,9468,14502,16543,20163,34567,41280,51662,8292,40243,4510,36324,12291,14297,52082,6281950,6282322,6311718,6790694,5762,28013,6282263,6282325,6850390,5688,6282167,10355,34229,41320,6189495,1819,4899,9153,13347,24216,6846972,5175,30783,34907,7565,8225,8295,16491,27688,1168,1249,9013,12232,34005,937,25962,40833,48987,8221,25930,99999134,99999535,99999432,99999331,99999434,99999143,99999330,99999424,99999428,99999533,99999528,99999431,99999435,99999430,99999427,99999534,99999003,99999540,99999436,99999426,99999536,99999537,99999529,99999005,99999425,99999429,99999539,99999433,99999532,99999538,99999329,99999133,99999007,99999437],["TENABRI S DE RL DE CV","DURAZNOS MONTE REAL","INVERNADEROS MESA GRANDE","POTRERO DE SAN ANTONIO","CENTRO ACUÍCOLA PABELLON DE HIDALGO","LA HUERTA","EMPACADORA CRISTONEGRO","VENTA DE MOLE EN POLVO SIN NOMBRE","EMPACADORA EL CENTENARIO, S.A. DE C.V.","CHICHARONERA LOS AZULEJOS","PANADERÍA DON EMILIANO","PASTELERÍA SAN ÁNGEL","INTEGRALES VIVA MÁS","TORTILLERÍA LA PLANTA","MOLINO Y TORTILLERÍA SANTA TERESITA","TORTILLERÍA EL ANDADOR","VINÍCOLA SANTA ELENA DE AGUASCALIENTES SA DE CV","GONVI PROCESADORA Y COMERCIALIZADORA DE CARNES Y VISCERAS","LA GRANJA DE MANOLO","PRODUCTORA AVICOLA DEL CENTRO","FRUTAS Y LEGUMBRES SIN NOMBRE","COMERCIO AL POR MAYOR DE FRUTAS Y VERDURAS FRESCAS","CHARLIS FRUIT","CASA RENTERIA","ESPECIAS MOY","BODEGA SAN JUAN","CREMERIA DE ALBA AGROPECUARIO S DE RL DE CV","LECHE 19 DIECINUEVE HERMANOS SA DE CV","CARNES TEPEYAC","CARNICERÍA NAJERA","CARNICERÍA EL 4","CARNICERÍA LA MINGA","OBRADOR SAN FERNANDO","CARNES SUPREMA EL RECREO","VÍSCERAS DON JUAN","CARNICERÍA LALO","OBRADOR VIÑEDOS","EL POLLO GRIEGO","SUPER POLLERIAS KILO POLLO","POLLERÍA MARTÍNEZ","POLLERÍA EL GALLO DE ORO","POLLERÍA LA PRINCIPAL","POLLERÍA POLLOS TALIVAN","POLLERÍA ARA","POLLERÍA EL GÜUERO","ATLÁNTICO","PESCADERÍA PUERTO VALLARTA","ACUÍCOLA SANTA ROSA","MEAT &amp; FISH","FRUTAS FINAS VALENCIANO","FRUTERÍA PÉREZ","FRUTAS Y VERDURAS SG","FRUTERÍA DON BOSCO","FRUTERÍA EL CALÍ","FRUTERÍA Y VERDULERÍA LA GÜERA","PUESTO DE VERDURA SIN NOMBRE","FRUTERÍA LOS COMPADRES","FRUTERÍA CALIFORNIA","FRUTAS Y VERDURAS Y LEGUMBRES","SEMILLAS Y CEREALES GARCÍA","SEMILLAS Y CEREALES LA HORMIGUITA","CREMERÍA LAS FLORES","CREMERIA NUEVA TERAN","EMPACADORA SAN FRANCISCO","PANADERÍA JARDINES","PASTELERÍA MARIANETT","CHEDRAUI AGUASCALIENTES ASUNCIÓN","BODEGA SANTA ANITA 3905","BA EXPRESS FRACC DEL VALLE 5409","SUPERCENTER AGUASCALIENTES ORIENTE 2271","SÚPER MARKET LAS FUENTES","MINISÚPER DON BARATÓN","OXXO SUC. 50PEE-PERALES AGU","OXXO SUC. 50AUA-ABELARDORODRIGUEZAGU","OXXO SUC. 50H9U-CAROLINA VILLANUEVA AGU","CENTRO MÉDICO LA SALUD","STAR MEDICA SA DE CV","CLÍNICA HOSPITAL NÚMERO 2","CENTRO PEDAGÓGICO INFANTIL SORNISA MÁGICA","ESTANCIA INFANTIL PEQUEÑOS TRAVIESOS","CENTRO DE DESARROLLO INFANTIL CHISPA, A.C.","CENDI OLIVARES SANTANA","ESTANCIA DE BIENESTAR INFANTIL 21","CENDI REFORMA","ESTANCIA DE BIENESTAR INFANTIL ISSSSPEA","ESTANCIA DE BIENESTAR Y DESARROLLO INFANTIL NÚMERO 102","ONE AGUASCALIENTES SUR","BANQUETES LOS PIRULES","EVENTOS Y BANQUETES MUROS","BANQUETES JOMAR","LA CASA ROSA","RESTAURANTE KIMURA","RESTAURANTE CARNITAS MORA","ALMUERZOS Y COMIDAS CONCHITA","RESTAURANTE SHING WANG","CARNITAS SAN PANCHO","BIRRIERÍA LOS PEPES","GORDITAS GABY","MENUDOS CHELA","BIRRIERÍA DON LENCHO","LONCHERÍA BOULEVARD","LONCHERÍA Y JUGOS EL PERICO","TACOS DE CANASTA SI SEÑOR","TACOS EL PATRÓN","COFFEE DHAY","JUGOS Y LICUADOS LOS PANCHOS","GORDITAS AMBULANTE","LICUADOS","CHASKAS PUESTO CALLE","FRUTAS EN VASO","TAMALES CARRITO MOVIL","TORTAS MEGA","LICUADOS Y JUGOS DE LA CENTRAL","TAQUERIA ","BIRRIERÍA PUESTO DE LA CALLE","HAMBURGUESAS Y HOTDOGS","TACOS DE CANASTA BICICLETA","ANTOJOS MARCE PUESTO ESQUINA","DORICHASKAS Y SALCHIPULPOS DE LAS FERIAS","TACOS DE BIRRIA","TACOS AL PASTOR CARRETERA SLP","JUGOS DE FRUTAS Y AGUAS","HAMBURGUESAS Y PAPAS","PAPAS Y BANDERILLAS","AGUAS FRESCAS Y GORDITAS DE NATA","TACOS DE COLORES","HELADOS, PALETAS Y AGUAS","CAMARONES ENVARASADOS","PALOMITAS Y ANTOJOS DE FERIA","DUROS PREPARADOS","TACOS DE COLORES","CHICHARONES Y DUROS","BUÑUELOS DE JARDIN SAN MARCOS","GORDAS DE HUGO","DORILOCOS CARMEN","TAMALES OAXAQUEÑOS","QUESADILLAS DE GUISADOS","HOTDOGS","FRUTAS Y JUGOS AMBULANTE","PAPAS FRTITAS"],[111216,111339,111411,112512,112512,311411,311423,311423,311613,311614,311812,311812,311820,311830,311830,311830,312131,431121,431121,431122,431130,431130,431130,431130,431150,431150,431160,431160,461121,461121,461121,461121,461121,461121,461121,461121,461121,461122,461122,461122,461122,461122,461122,461122,461122,461123,461123,461123,461123,461130,461130,461130,461130,461130,461130,461130,461130,461130,461130,461140,461140,461150,461150,461190,461190,461190,462111,462111,462111,462111,462112,462112,462112,462112,462112,622111,622111,622112,624411,624411,624411,624412,624412,624412,624412,624412,721111,722320,722320,722320,722511,722511,722511,722511,722511,722513,722513,722513,722513,722513,722514,722514,722514,722514,722515,722515,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],["0 a 5 personas","31 a 50 personas","251 y más personas","0 a 5 personas","6 a 10 personas","251 y más personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","6 a 10 personas","0 a 5 personas","11 a 30 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","11 a 30 personas","0 a 5 personas","11 a 30 personas","6 a 10 personas","0 a 5 personas","0 a 5 personas","6 a 10 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","11 a 30 personas","31 a 50 personas","31 a 50 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","6 a 10 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","6 a 10 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","6 a 10 personas","11 a 30 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","101 a 250 personas","101 a 250 personas","11 a 30 personas","51 a 100 personas","11 a 30 personas","0 a 5 personas","6 a 10 personas","6 a 10 personas","6 a 10 personas","31 a 50 personas","101 a 250 personas","251 y más personas","0 a 5 personas","31 a 50 personas","11 a 30 personas","31 a 50 personas","101 a 250 personas","11 a 30 personas","51 a 100 personas","31 a 50 personas","0 a 5 personas","6 a 10 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","11 a 30 personas","0 a 5 personas","0 a 5 personas","11 a 30 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","6 a 10 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas","0 a 5 personas"],["Aguascalientes","Aguascalientes","Calvillo","Aguascalientes","Rincón de Romos","Jesús María","Aguascalientes","Aguascalientes","Jesús María","Jesús María","Calvillo","Aguascalientes","Aguascalientes","Calvillo","Aguascalientes","Calvillo","Pabellón de Arteaga","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Jesús María","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Jesús María","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Calvillo","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Calvillo","San Francisco de los Romo","Aguascalientes","San Francisco de los Romo","Aguascalientes","San Francisco de los Romo","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes","Aguascalientes"],["Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Semifijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Semifijo","Fijo","Semifijo","Fijo","Fijo","Fijo","Fijo","Fijo","Fijo","Ambulante","Ambulante","Ambulante","Ambulante","Ambulante","Ambulante","Semifijo","Semifijo","Semifijo","Ambulante","Ambulante","Semifijo","Ambulante","Semifijo","Ambulante","Ambulante","Ambulante","Semifijo","Ambulante","Semifijo","Ambulante","Semifijo","Ambulante","Ambulante","Semifijo","Ambulante","Ambulante","Fijo","Fijo","Ambulante","Semifijo","Ambulante","Ambulante","Ambulante"],["Primario","Primario","Primario","Primario","Primario","Secundario","Secundario","Secundario","Secundario","Secundario","Secundario","Secundario","Secundario","Secundario","Secundario","Secundario","Secundario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","Terciario","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica"],["Cultivo de frutas / vegetales","Cultivo de frutas / vegetales","Cultivo de frutas / vegetales","Piscicultura / acuicultura","Piscicultura / acuicultura","Industria alimentaria","Industria alimentaria","Industria alimentaria","Industria alimentaria","Industria alimentaria","Panificación tradicional / Elaboración de galletas y pastas para sopa ","Panificación tradicional / Elaboración de galletas y pastas para sopa ","Panificación tradicional / Elaboración de galletas y pastas para sopa ","Elaboración de tortillas de maíz y molienda de nixtamal","Elaboración de tortillas de maíz y molienda de nixtamal","Elaboración de tortillas de maíz y molienda de nixtamal","Bebidas","Comercio al por mayor de carnes","Comercio al por mayor de carnes","Comercio al por mayor de carnes","Comercio al por mayor de frutas y verduras frescas","Comercio al por mayor de frutas y verduras frescas","Comercio al por mayor de frutas y verduras frescas","Comercio al por mayor de frutas y verduras frescas","Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos ","Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos ","Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos ","Comercio al por mayor de semillas y granos alimenticios, especias, chiles secos, leche y otros productos lácteos ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de carnes rojas / aves ","Comercio al por menor de pescados y mariscos","Comercio al por menor de pescados y mariscos","Comercio al por menor de pescados y mariscos","Comercio al por menor de pescados y mariscos","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de frutas y verduras frescas","Comercio al por menor de semillas y granos alimenticios, especias y chiles secos","Comercio al por menor de semillas y granos alimenticios, especias y chiles secos","Comercio al por menor de leche, otros productos lácteos y embutidos","Comercio al por menor de leche, otros productos lácteos y embutidos","Comercio al por menor de otros alimentos","Comercio al por menor de otros alimentos","Comercio al por menor de otros alimentos","Comercio al por menor en supermercados","Comercio al por menor en supermercados","Comercio al por menor en supermercados","Comercio al por menor en supermercados","Comercio al por menor en minisupers","Comercio al por menor en minisupers","Comercio al por menor en minisupers","Comercio al por menor en minisupers","Comercio al por menor en minisupers","Hospitales generales del sector privado o público","Hospitales generales del sector privado o público","Hospitales generales del sector privado o público","Guarderías del sector privado o público","Guarderías del sector privado o público","Guarderías del sector privado o público","Guarderías del sector privado o público","Guarderías del sector privado o público","Guarderías del sector privado o público","Guarderías del sector privado o público","Guarderías del sector privado o público","Hoteles","Servicios de preparación de alimentos para ocasiones especiales","Servicios de preparación de alimentos para ocasiones especiales","Servicios de preparación de alimentos para ocasiones especiales","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","Restaurantes / servicio de preparación de alimentos / Cafeterías y similares","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica","No aplica"],["E010101","E010101","E010101","E010101","E010101","E010101","E010101","E010101","E010101","E010101","E010101","E010101","E010102","E010102","E010102","E010102","E010102","E010102","E010102","E010102","E010102","E010102","E010102","E010103","E010103","E010103","E010103","E010103","E010103","E010103","E010103","E010103","E010103","E010103","E010103","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010105","E010105","E010105","E010105","E010105","E010105","E010105","E010105","E010105","E010105","E010105","E010105","E010105","E010106","E010106","E010106","E010106","E010106","E010106","E010106","E010106","E010106","E010106","E010107","E010107","E010107","E010107","E010107","E010107","E010107","E010107","E010107","E010107","E010107","E010107","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010108","E010109","E010109","E010109","E010109","E010109","E010109","E010109","E010109","E010109","E010109","E010109","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010104","E010107","E010107","E010107","E010107","E010107","E010107","E010108","E010109","E010101","E010101","E010101","E010101","E010101","E010101","E010101","E010108","E010108","E010103","E010103","E010103","E010103","E010103","E010104","E010102","E010104"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Id_denue<\/th>\n      <th>Nombre del establecimiento<\/th>\n      <th>Codigo SCIAN<\/th>\n      <th>Número de personas ocupadas<\/th>\n      <th>Municipio<\/th>\n      <th>Tipo de unidad económica<\/th>\n      <th>Sector SCIAN<\/th>\n      <th>Tipo de actividad<\/th>\n      <th>Entrevistador Asignado<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"autoWidth":true,"scrollX":true,"fixedColumns":true,"language":{"info":"Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros","paginate":{"previous":"Anterior","next":"Siguiente"},"search":"Buscar:","lengthMenu":"Mostrar _MENU_ registros"},"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false,"orderCellsTop":true,"lengthMenu":[3,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<p><br> <br></p>
+<h2 id="validación-en-línea-del-cuestionario.">Validación en línea del cuestionario.</h2>
+<p><br></p>
+<p>Una de las grandes ventajas que proporcionó el uso de la plataforma del BM, fue la posibilidad de insertar dentro del instrumento de captación, validaciones básicas que aseguran la calidad de los datos desde la salida misma de captura. Específicamente, comprenden al menos 3 tipos de validaciones:</p>
+<ol style="list-style-type: decimal">
+<li><p>De secuencia lógica del cuestionario. Corresponden a las validaciones referentes al flujo de las preguntas, y comprenden los filtros y pases entre preguntas y secciones. La aplicación garantiza que al programarse dichos elementos, no pueda cerrarse la entrevista si existen errores de este tipo, por lo que el entrevistador puede corregir de inmediato cualquier situación indeseable al respecto.</p></li>
+<li><p>Rangos válidos. El cuestionario electrónico garantiza que una variable no podrá contener un rango distinto de valores para lo que se programa. Esto excluye también la posibilidad de captar caracteres o tipos de datos ajenos a lo que se espera.</p></li>
+<li><p>Validaciones especiales. El diseñador del cuestionario puede incluir validaciones adicionales relacionadas con aspectos lógicos o conceptuales de interrelación entre dos o más preguntas del cuestionario. Específicamente, para esta encuesta se construyeron validaciones para hacer consistentes las unidades de medida de los residuos declarados entre sí, de modo que si alguien declara una cantidad de residuos total, al momento de desglosar de ellos la cantidad no comestible, esta última no resulte mayor que la primera. También se verifica que si alguien declaró unidades en litros en una pregunta, no pueda declarar toneladas en otra, por ejemplo.</p></li>
+</ol>
+<p>Las expresiones para las condiciones de validación programadas en la plataforma fueron las siguientes:</p>
+<p><br></p>
+<p><img src="archivos/validacion.png" width="95%" style="display: block; margin: auto;" /></p>
+<p><br> <br></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

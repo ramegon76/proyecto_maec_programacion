@@ -1,0 +1,19 @@
+53-27-23-59,	tipo_unidad_economica = Fijo
+53-27-23-59,	sector_scian = Terciario
+53-27-23-59,	tipo_actividad = Restaurantes / servicio de preparación de alimentos
+53-27-23-59,	personas_ocupadas = 0 a 5 personas
+53-27-23-59,	municipio = Aguascalientes
+66-30-95-73,	tipo_unidad_economica = Fijo
+75-88-19-43,	tipo_unidad_economica = Fijo
+75-88-19-43,	sector_scian = Terciario
+75-88-19-43,	personas_ocupadas = 0 a 5 personas
+75-88-19-43,	municipio = Aguascalientes
+58-57-15-91,	tipo_unidad_economica = Fijo
+77-06-67-30,	tipo_unidad_economica = Fijo
+98-38-33-96,	tipo_unidad_economica = Fijo
+id_denue >= 99999133,	tipo_unidad_economica = Ambulante
+id_denue >= 99999003,	sector_scian = Terciario
+id_denue >= 99999003,	personas_ocupadas = 0 a 5 personas
+id_denue >= 99999003,	municipio = Aguascalientes
+66-30-95-73,	municipio = Aguascalientes
+66-30-95-73,	sector_scian = Terciario

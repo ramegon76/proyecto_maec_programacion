@@ -1,0 +1,4 @@
+ V1 , llave , Llave de entrevista asignada por el sistema 
+ V2 , folio_sist , Folio asignado al registro por el sistema 
+ V4 , entrev , Nominativo del entrevistador que levantó el cuestionario 
+ V10 , durac , Duración de la entrevista en minutos 

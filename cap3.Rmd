@@ -1,0 +1,722 @@
+---
+title: "**Resultados**"
+--- 
+
+<div class=text-justify>
+
+<br>
+<br>
+ 
+## Consideración inicial acerca de las cifras que se obtienen de la muestra.
+
+Antes de dar paso al análisis de los datos captados en el operativo de prueba, es necesario recordar que se debe tener presente que la muestra no fue construida en forma probabilística, de tal forma que no pueden obtenerse inferencias y ni siquiera pueden usarse las cifras obtenidas como indicadores de estimaciones o aproximaciones a los datos para el estado de Aguascalientes. Todas las cifras que a continuación se presentan, son indicadores construidos con carácter ilustrativo para este proyecto. 
+
+<br>
+
+
+## Generación de residuos por tipo.
+
+<br>
+
+De acuerdo con los datos obtenidos de la muestra, el tipo de residuos que se reporta principalmente son los de *Vegetal Crudo*, le siguen los de *Animal Crudo*, enseguida los de *otro tipo*, que se refiere en la mayoría de los casos a los alimentos preparados, en el que se sirven mezclados los vegetales y la carne. 
+
+<br>
+
+```{r t_res, echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+library(ggplot2)
+establecimientos2 <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/establecimientos2.csv")
+barplot(c(sum(establecimientos2$residuos_vc,na.rm = T),
+          sum(establecimientos2$residuos_vp,na.rm = T),
+          sum(establecimientos2$residuos_ac,na.rm = T),  
+          sum(establecimientos2$residuos_ap,na.rm = T),
+          sum(establecimientos2$residuos_ot,na.rm = T)), 
+        beside=T, 
+        main='Frecuencia de tipos de residuos declarados',
+        legend.text= c('Vegetal crudo','Vegetal procesado', 'Animal crudo',
+                       'Animal procesado', 'Otro tipo'),
+        args.legend = list(x = "topright", bty="n", ncol = 2),
+        ylab='Frecuencia', 
+        ylim= c(0,80),
+                col=c('deepskyblue2','deepskyblue4','orange3','orange4','darkolivegreen4'))
+
+```
+<p align="center"> **Fuente: INEGI. Prueba Piloto 01 ERAMO 2019** </p>
+
+<br>
+<br>
+
+Una vez que el informante declaraba el tipo de residuo según las categorías anteriores, se le solicitó que describiera en qué consistían dichos residuos. El análisis de esta información puede realizarse mediante una herramienta de agrupación  de textos en nubes de palabras de R, obteniendo lo siguiente:
+
+```{r wc1, echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+### Paquetes necesarios:
+
+#if(!require(NLP))
+#{install.packages("NLP", dependencies = TRUE)}
+#if(!require(tm))
+#{install.packages("tm", dependencies = TRUE)}
+#if(!require(SnowballC))
+#{install.packages("SnowballC", dependencies = TRUE)} 
+#if(!require(wordcloud))
+#{install.packages("wordcloud", dependencies = TRUE)} 
+#if(!require(wordcloud2))
+#{install.packages("wordcloud2", dependencies = TRUE)} 
+#if(!require(RColorBrewer))
+#{install.packages("RColorBrewer", dependencies = TRUE)} 
+
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+
+lista_tiporesiduos2 <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/lista_tiporesiduos2.csv")
+
+##### Preparación del archivo de texto:
+
+texto1 <- write.table(lista_tiporesiduos2$nombre_residuo, "bd_pp_eramo2020/procesamiento/texto1.txt")
+
+# Se relee el archivo txt:
+filePath <- "bd_pp_eramo2020/procesamiento/texto1.txt"
+text <- readLines(filePath,encoding="UTF-8")     #Leemos el archivo
+text = iconv(text, to="ASCII//TRANSLIT") # Convert Character Vector between Encodings
+corpus <- Corpus(VectorSource(text)) # formato de texto
+# llevamos a minúsculas
+d  <- tm_map(corpus, tolower)
+# quitamos espacios en blanco
+d  <- tm_map(d, stripWhitespace)
+# quitamos la puntuación
+d <- tm_map(d, removePunctuation)
+# quitamos los números
+d <- tm_map(d, removeNumbers)
+
+#Un comando útil es quitar la palabras genéricas, la paquetería “tm” tiene un grupo de palabras. Para verlas:
+# stopwords("spanish")
+# Importante: “stopwords(”spanish“)” es un vector, se puede ampliar y actualizar de forma personalizada.
+
+# remueve palabras vacías genericas
+d <- tm_map(d, removeWords, stopwords("spanish"))
+
+
+##### Conteo: 
+
+# Una vez “limpio” el texto, tenemos que pasarlo a un formato de base de datos.
+tdm <- TermDocumentMatrix(d)
+
+# Encontramos sus asociaciones;
+frecuentes<-findFreqTerms(tdm, lowfreq=20) # el parámetro lowfreq fija el umbral de frecuencia deseado
+# findAssocs(tdm, frecuentes, 0.45)  # se determinan las asociaciones
+
+
+##### Sumarización:
+
+m <- as.matrix(tdm)                            # lo vuelve una matriz
+v <- sort(rowSums(m),decreasing=TRUE)          # lo ordena y suma
+df <- data.frame(word = names(v),freq=v)       # lo nombra y hace data.frame
+
+# Y se hace la nube de palabras: 
+
+wordcloud(words = df$word, freq = df$freq, min.freq = 2,
+          max.words=100, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+
+```
+
+Que tienen las siguientes frecuencias:
+
+
+```{r f1, echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+# Una vez que tenemos nuestra data.frame con las palabras y su frecuencia podemos visualizar:
+# gráfico:
+
+barplot(df[1:10,]$freq, las = 2, names.arg = df[1:10,]$word,
+        col ="lightblue", main ="PALABRAS MÁS FRECUENTES DE TIPOS DE RESIDUOS", ylab = "Frecuencia de palabras")
+
+```
+
+<br>
+
+Del análisis de estros textos, pueden obtenerse elementos para construir categorías de respuesta precodificadas para la captación de los residuos de forma más específica.
+
+<br>
+<br>
+
+## Caso especial: _La Huerta_
+
+<br>
+
+En este punto del análisis, es necesario hacer mención especial de la empresa empacadora de verduras y frutas congeladas "*La Huerta*", la cual proporcionó información muy precisa sobre los residuos que genera. La importancia de este tipo de unidades de observación es que por sí mismas constituyen un sub-universo de estudio de gran interés para el proyecto. De este modo, por el hecho de que los valores de residuos declarados en dicho establecimiento se encuentran muy por encima del promedio del resto de las unidades de observación (el orden de magnitud de sus residuos es de miles de toneladas anuales, y en el caso de las cosechas no levantadas, mensuales), sus datos no deben ser considerados junto con el resto de establecimientos, ya que su comportamiento atípico sesgaría demasiado los estadísticos de la muestra.
+
+Los datos captados en dicho establecimiento fueron los siguientes:
+
+<br>
+
+<p align="center"> **Datos captados sobre residuos generados por _La Huerta_** </p>
+<br>
+
+```{r tab_huerta, echo=FALSE, message=FALSE}
+
+library(kableExtra)
+th <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/huerta.csv", header=T)
+names(th) <- c( "Tipo de residuo", "Contenido del residuo", "Cantidad", "Unidad", "Cantidad del residuo que es no comestible", "Unidad de Resid No Comest","Periodo", "Causa del desecho", "Destino")
+kableExtra::kable(th, align = c('l','l','l','l','l','l','l','l')) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover"))
+
+``` 
+
+<br>
+
+En virtud de lo anterior, se excluye en lo sucesivo para todos los cálculos sobre cantidades de residuos, la información proporcionada por dicha empresa.
+
+<br>
+
+## Promedio de residuos de alimentos sólidos.
+
+Una de las variables de mayor interés de la encuesta, por ser uno de los objetivos de la misma, es la estimación de la cantidad promedio de residuos de alimentos generados en las unidades de observación. Para obtenerlo, es necesario realizar el cálculo de los kilogramos por semana que se declaran como residuos y promediarlo. 
+
+<br>
+
+Promedio estimado de residuos alimenticios (kg/semana):
+```{r echo=FALSE, include=TRUE}
+lista_tiporesiduos2 <- read.csv("/home/rmg/Escritorio/proyecto_maec_programacion/bd_pp_eramo2020/procesamiento/bd_explot/lista_tiporesiduos2.csv", header=T)
+residuos2 <- lista_tiporesiduos2[which(lista_tiporesiduos2$id_denue != 6280911),]
+residuos2$kilos <- rep(0,dim(residuos2)[1])
+residuos2$kilos[which(residuos2$unidad_resid == 1)] <- residuos2$cantidad_resid[which(residuos2$unidad_resid == 1)]/1000
+residuos2$kilos[which(residuos2$unidad_resid == 2)] <- residuos2$cantidad_resid[which(residuos2$unidad_resid == 2)]
+residuos2$k_sem[which(residuos2$t_colecta == 1)] <- residuos2$kilos[which(residuos2$t_colecta == 1)]*7
+residuos2$k_sem[which(residuos2$t_colecta == 2)] <- residuos2$kilos[which(residuos2$t_colecta == 2)]
+residuos2$k_sem[which(residuos2$t_colecta == 3)] <- residuos2$kilos[which(residuos2$t_colecta == 3)]/2
+residuos2$k_sem[which(residuos2$t_colecta == 4)] <- residuos2$kilos[which(residuos2$t_colecta == 4)]/4
+residuos2$k_sem[which(residuos2$otro_t_colecta == "anual")] <- residuos2$kilos[which(residuos2$otro_t_colecta == "anual")]/52
+residuos2$k_sem[which(residuos2$otro_t_colecta == "tercer día")] <- residuos2$kilos[which(residuos2$otro_t_colecta == "tercer día")]*3
+residuos2$k_sem[which(residuos2$otro_t_colecta == "cada tercer día")] <- residuos2$kilos[which(residuos2$otro_t_colecta == "cada tercer día")]*3
+media1 <- mean(residuos2$k_sem[which(residuos2$k_sem > 0)])
+media1
+```
+
+<br>
+<br>
+
+## Residuos de alimentos sólidos declarados por tipo.
+
+La gráfica de dispersión de las cantidades declaradas de residuos alimenticios ilustran respecto a la existencia de algunos puntos con valores muy altos que sesgan el promedio.
+
+
+```{r graf_r_sem, echo = FALSE, message = FALSE, fig.height= 7, fig.width= 7, warning = FALSE, cache=F}
+
+plot(sort(residuos2$k_sem[which(residuos2$k_sem > 0)]), 
+     col="darkgreen", pch=17, 
+     main = "Residuos semanales declarados", xlab = "", ylab="kg")
+
+```
+<p align="center"> **Fuente: INEGI. Prueba Piloto 01 ERAMO 2020** </p>
+
+<br>
+
+La misma gráfica, pero diferenciada por tipo de residuo generado muestra lo siguiente:
+
+```{r graf_r_sem2, echo = FALSE, message = FALSE, fig.height= 9, fig.width= 9, warning = FALSE, cache=F}
+
+par(mfrow=c(2,2))
+
+plot(sort(residuos2$k_sem[which(residuos2$k_sem > 0 & residuos2$tipo_resid == 1)]), 
+     col="darkgreen", pch=17, 
+     main = "Residuos semanales de vegetal crudo", xlab = "", ylab="kg")
+
+plot(sort(residuos2$k_sem[which(residuos2$k_sem > 0 & residuos2$tipo_resid == 2)]), 
+     col="darkgreen", pch=17, 
+     main = "Residuos semanales de vegetal procesado", xlab = "", ylab="kg")
+
+plot(sort(residuos2$k_sem[which(residuos2$k_sem > 0 & residuos2$tipo_resid == 3)]), 
+     col="darkgreen", pch=17, 
+     main = "Residuos semanales de animal crudo", xlab = "", ylab="kg")
+
+plot(sort(residuos2$k_sem[which(residuos2$k_sem > 0 & residuos2$tipo_resid == 3)]), 
+     col="darkgreen", pch=17, 
+     main = "Residuos semanales de animal procesado", xlab = "", ylab="kg")
+```
+
+<br>
+
+Un análisis más a fondo de los tipos de residuos requiere observar su comportamiento por tamaño del establecimiento. La siguiente gráfica nos muestra dicho comportamiento. 
+En particular, no parece haber mucha diferencia entre la cantidad de residuos declarados en función del tamaño del establecimiento (el valor por encima de la tendencia general en el caso de la categoría *31 a 50 personas*, corresponde a un solo punto, por lo que no puede ser tomado como tendencia).
+
+<br>
+
+```{r graf_r_tam, echo = FALSE, message = FALSE, fig.height= 7, fig.width= 10, warning = FALSE, cache=F}
+
+library(ggplot2)  
+
+levels(residuos2$personas_ocupadas) <- c("0 a 5 pers", "6 a 10 pers", "11 a 30 pers", "31 a 50 pers", "51 a 100 pers", "101 a 250 pers", "251 y más pers")                  
+
+ggplot(residuos2[which(residuos2$k_sem > 0),], 
+       aes(x=residuos2$personas_ocupadas[which(residuos2$k_sem > 0)], 
+           y=residuos2$k_sem[which(residuos2$k_sem > 0)])) + 
+  geom_boxplot(
+    # custom boxes
+    color="dodgerblue4",
+    fill="dodgerblue4",
+    alpha=0.2,
+    # Notch
+    notch=F,
+    notchwidth = 0.8,
+    # custom outliers
+    outlier.colour="navy",
+    outlier.fill="navy",
+    outlier.size=3) +
+  xlab('Personas Ocupadas') + ylab('kg') + 
+  ggtitle('Residuos semanales por tamaño del establecimiento')
+
+``` 
+
+<br>
+
+<p align="center"> **Fuente: INEGI. Prueba Piloto 01 ERAMO 2020** </p>
+
+<br>
+<br>
+
+En el caso de la cantidad de residuos semanales por tipo de unidad de observación, sí parece haber algunas tendencias. 
+
+<br>
+
+```{r graf_r_tipouni, echo = FALSE, message = FALSE, fig.height= 12, fig.width= 10, warning = FALSE, cache=F}
+
+library(ggplot2)  
+
+ggplot(residuos2[which(residuos2$k_sem > 0 &
+                                   residuos2$tipo_actividad != ''),], 
+       aes(x=residuos2$tipo_actividad[which(residuos2$k_sem > 0 &
+                                                           residuos2$tipo_actividad != '')], 
+           y=residuos2$k_sem[which(residuos2$k_sem > 0 &
+                                                   residuos2$tipo_actividad != '')])) + 
+  geom_boxplot(
+    # custom boxes
+    color="dodgerblue4",
+    fill="dodgerblue4",
+    alpha=0.2,
+    # Notch
+    notch=F,
+    notchwidth = 0.8,
+    # custom outliers
+    outlier.colour="navy",
+    outlier.fill="navy",
+    outlier.size=3) +
+  xlab('') + ylab('kg') + 
+  ggtitle('Residuos semanales por tipo de actividad') +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+``` 
+<p align="center"> **Fuente: INEGI. Prueba Piloto 01 ERAMO 2020** </p>
+
+<br>
+
+En particular, destacan los comercios al por mayor de carnes y verduras, así como los comercios de alimentos en supermercados. Llama la atención también la dispersión de cantidades declaradas en el ramo de restaurantes.
+
+<br>
+<br>
+
+Finalmente, al comparar las cantidades de residuos por sector de actividad económica, parece haber una clara tendencia a una mayor generación de residuos para los establecimientos del sector primario (téngase en cuenta el caso de "*La Huerta*", cuya producción de residuos es mucho mayor que las que aquí se muestran).
+
+<br>
+
+
+```{r graf_r_sector, echo = FALSE, message = FALSE, fig.height= 8, fig.width= 10, warning = FALSE, cache=F}
+
+library(ggplot2)  
+
+ggplot(residuos2[which(residuos2$k_sem > 0),], 
+       aes(x=residuos2$sector_scian[which(residuos2$k_sem > 0)], 
+           y=residuos2$k_sem[which(residuos2$k_sem > 0)])) + 
+  geom_boxplot(
+    # custom boxes
+    color="dodgerblue4",
+    fill="dodgerblue4",
+    alpha=0.2,
+    # Notch
+    notch=F,
+    notchwidth = 0.8,
+    # custom outliers
+    outlier.colour="navy",
+    outlier.fill="navy",
+    outlier.size=3) +
+  xlab('') + ylab('kg') + 
+  ggtitle('Residuos semanales por sector de actividad') 
+```
+<p align="center"> **Fuente: INEGI. Prueba Piloto 01 ERAMO 2020** </p>
+ 
+<br>
+<br>
+
+
+## Causas de la perdida o despedicio de los residuos. 
+<br>
+
+Esta variable decidió capturarse de modo abierto, a fin de dejar en manos del informante toda la gama de respuestas posibles. Con ello, se tiene la posibilidad de construir categorías más cercanas a las posibles respuestas de los informantes para un segundo evento de la encuesta.
+
+El análisis de los textos vertidos en dicha variable revela que un buen porcentaje de los informantes desechan residuos de alimentos como parte del proceso de limpieza o preparación de los mismos, o bien se trata de bagazo o cáscaras que no son  comestibles. Solamente un pequeño porcentaje de respuestas menciona que se tratan de desechos o residuos que los clientes no consumen en su totalidad, por lo que ya no son aprovechables para consumo humano. Se presenta una nube de palabras que nos da una idea de conceptos clave al respecto.
+
+```{r wc2, echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+### Paquetes necesarios:
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+
+lista_tiporesiduos2 <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/lista_tiporesiduos2.csv")
+
+##### Preparación del archivo de texto:
+
+texto2 <- write.table(lista_tiporesiduos2$causa_desecho, "bd_pp_eramo2020/procesamiento/texto2.txt")
+
+# Se relee el archivo txt:
+filePath <- "bd_pp_eramo2020/procesamiento/texto2.txt"
+text <- readLines(filePath,encoding="UTF-8")     #Leemos el archivo
+text = iconv(text, to="ASCII//TRANSLIT") # Convert Character Vector between Encodings
+corpus <- Corpus(VectorSource(text)) # formato de texto
+# llevamos a minúsculas
+d  <- tm_map(corpus, tolower)
+# quitamos espacios en blanco
+d  <- tm_map(d, stripWhitespace)
+# quitamos la puntuación
+d <- tm_map(d, removePunctuation)
+# quitamos los números
+d <- tm_map(d, removeNumbers)
+
+#Un comando útil es quitar la palabras genéricas, la paquetería “tm” tiene un grupo de palabras. Para verlas:
+# stopwords("spanish")
+# Importante: “stopwords(”spanish“)” es un vector, se puede ampliar y actualizar de forma personalizada.
+
+# remueve palabras vacías genericas
+d <- tm_map(d, removeWords, stopwords("spanish"))
+
+
+##### Conteo: 
+
+# Una vez “limpio” el texto, tenemos que pasarlo a un formato de base de datos.
+tdm <- TermDocumentMatrix(d)
+
+# Encontramos sus asociaciones;
+frecuentes<-findFreqTerms(tdm, lowfreq=20) # el parámetro lowfreq fija el umbral de frecuencia deseado
+# findAssocs(tdm, frecuentes, 0.45)  # se determinan las asociaciones
+
+
+##### Sumarización:
+
+m <- as.matrix(tdm)                            # lo vuelve una matriz
+v <- sort(rowSums(m),decreasing=TRUE)          # lo ordena y suma
+df <- data.frame(word = names(v),freq=v)       # lo nombra y hace data.frame
+
+# Y se hace la nube de palabras: 
+
+wordcloud(words = df$word, freq = df$freq, min.freq = 2,
+          max.words=100, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+
+```
+
+Cuyas frecuencias son:
+
+```{r f4, echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+# Una vez que tenemos nuestra data.frame con las palabras y su frecuencia podemos visualizar:
+# gráfico:
+
+barplot(df[1:10,]$freq, las = 2, names.arg = df[1:10,]$word,
+        col ="lightblue", main ="PALABRAS MÁS FRECUENTES DE CAUSAS", ylab = "Frecuencia de palabras")
+
+```
+
+Una adecuada observación y clasificación de las respuestas, proveerá una primera versión de categorías precodificadas para usarse en la siguiente prueba.
+
+<br>
+<br>
+
+## Destino de los residuos.
+
+<br>
+
+En cuanto a los destinos declarados, esta pregunta estaba precodificada, y los resultados arrojan la mayor frecuencia en la categoría *Otro destino*, seguida por *Basurero / desperdicio / desecho* y *Alimentación animal*. 
+
+<br>
+
+```{r graf_r_destino, echo = FALSE, message = FALSE, fig.height= 8, fig.width= 10, warning = FALSE, cache=F}
+
+barplot(c(length(which(lista_tiporesiduos2$destino == 1)), 
+          length(which(lista_tiporesiduos2$destino == 2)),
+          length(which(lista_tiporesiduos2$destino == 4)),
+          length(which(lista_tiporesiduos2$destino == 5)),
+          length(which(lista_tiporesiduos2$destino == 7)),
+          length(which(lista_tiporesiduos2$destino == 8))),
+        beside=T, legend.text= c('Alcantarillado','Alimentación animal', 'Basurero / desperdicio / desecho',
+                                 'Composteo / procesos aeróbicos', 
+'Banco de alimentos / comedor público', 'Otro destino'),
+        main='Destinos de los residuos declarados',
+        args.legend = list(x = "topleft", bty="n", ncol = 2),
+        ylab='Frecuencia', 
+        ylim= c(0,80),
+        col=c('slategray','chocolate4','cornflowerblue','olivedrab3','indianred', 'skyblue'))
+
+```
+<p align="center"> **Fuente: INEGI. Prueba Piloto 01 ERAMO 2020** </p>
+
+<br>
+<br>
+
+En este contexto, dada la frecuencia de respuesta de la opción *Otro destino*, se vuelve relevante analizar los textos capturados en dicho campo. La herramienta de análisis de textos arroja la siguiente nube de palabras:
+
+```{r wc3, echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+### Paquetes necesarios:
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+
+lista_tiporesiduos2 <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/lista_tiporesiduos2.csv")
+
+##### Preparación del archivo de texto:
+
+texto3 <- write.table(lista_tiporesiduos2$otro_destino, "bd_pp_eramo2020/procesamiento/texto3.txt")
+
+# Se relee el archivo txt:
+filePath <- "bd_pp_eramo2020/procesamiento/texto3.txt"
+text <- readLines(filePath,encoding="UTF-8")     #Leemos el archivo
+text = iconv(text, to="ASCII//TRANSLIT") # Convert Character Vector between Encodings
+corpus <- Corpus(VectorSource(text)) # formato de texto
+# llevamos a minúsculas
+d  <- tm_map(corpus, tolower)
+# quitamos espacios en blanco
+d  <- tm_map(d, stripWhitespace)
+# quitamos la puntuación
+d <- tm_map(d, removePunctuation)
+# quitamos los números
+d <- tm_map(d, removeNumbers)
+
+#Un comando útil es quitar la palabras genéricas, la paquetería “tm” tiene un grupo de palabras. Para verlas:
+# stopwords("spanish")
+# Importante: “stopwords(”spanish“)” es un vector, se puede ampliar y actualizar de forma personalizada.
+
+# remueve palabras vacías genericas
+d <- tm_map(d, removeWords, stopwords("spanish"))
+
+
+##### Conteo: 
+
+# Una vez “limpio” el texto, tenemos que pasarlo a un formato de base de datos.
+tdm <- TermDocumentMatrix(d)
+
+# Encontramos sus asociaciones;
+frecuentes<-findFreqTerms(tdm, lowfreq=20) # el parámetro lowfreq fija el umbral de frecuencia deseado
+# findAssocs(tdm, frecuentes, 0.45)  # se determinan las asociaciones
+
+
+##### Sumarización:
+
+m <- as.matrix(tdm)                            # lo vuelve una matriz
+v <- sort(rowSums(m),decreasing=TRUE)          # lo ordena y suma
+df <- data.frame(word = names(v),freq=v)       # lo nombra y hace data.frame
+
+# Y se hace la nube de palabras: 
+
+wordcloud(words = df$word, freq = df$freq, min.freq = 2,
+          max.words=100, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+
+```
+
+Al visualizar las frecuencias de palabras, tanto de esta como de otras preguntas, se hace evidente que se deben crear nuevas categorías para un ejercicio futuro, por ejemplo, "*Lo regala/lo dona*" o "*Lo vende*". Una recodificación del resto de declaraciones incrementaría sin duda algunas de las frecuencias ya existentes, mientras que se hace necesario revalorar la permanencia de otras, como la de "*Alcantarillado*".
+
+<br>
+<br>
+
+## Observaciones capturadas.
+
+<br>
+
+Como en todo cuestionario, se permite al entrevistador realizar la captura de información complementaria o adicional acerca de detalles sobre la información captada, que a manera de metadatos de campo, permitan aclarar o comprender ciertas situaciones observadas durante la entrevista, que no pueden ser captadas en ninguna variable prevista por el cuestionario mismo.
+
+Es así que, previamente a la tarea de clasificar y categorizar los textos capturados en este campo destinado a las observaciones, se puede adelantar una primera versión del análisis de frecuencias de palabras en el texto, para dar una idea rápida sobre los contenidos de los comentarios. Los resultados se muestran en la nube de palabras siguiente.
+
+```{r wc4, echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+### Paquetes necesarios:
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+
+obs <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/obs.csv")
+
+##### Preparación del archivo de texto:
+
+texto4 <- write.table(obs$texto, "bd_pp_eramo2020/procesamiento/texto4.txt")
+
+# Se relee el archivo txt:
+filePath <- "bd_pp_eramo2020/procesamiento/texto4.txt"
+text <- readLines(filePath,encoding="UTF-8")     #Leemos el archivo
+text = iconv(text, to="ASCII//TRANSLIT") # Convert Character Vector between Encodings
+corpus <- Corpus(VectorSource(text)) # formato de texto
+# llevamos a minúsculas
+d  <- tm_map(corpus, tolower)
+# quitamos espacios en blanco
+d  <- tm_map(d, stripWhitespace)
+# quitamos la puntuación
+d <- tm_map(d, removePunctuation)
+# quitamos los números
+d <- tm_map(d, removeNumbers)
+
+#Un comando útil es quitar la palabras genéricas, la paquetería “tm” tiene un grupo de palabras. Para verlas:
+# stopwords("spanish")
+# Importante: “stopwords(”spanish“)” es un vector, se puede ampliar y actualizar de forma personalizada.
+
+# remueve palabras vacías genericas
+d <- tm_map(d, removeWords, stopwords("spanish"))
+
+
+##### Conteo: 
+
+# Una vez “limpio” el texto, tenemos que pasarlo a un formato de base de datos.
+tdm <- TermDocumentMatrix(d)
+
+# Encontramos sus asociaciones;
+frecuentes<-findFreqTerms(tdm, lowfreq=20) # el parámetro lowfreq fija el umbral de frecuencia deseado
+# findAssocs(tdm, frecuentes, 0.45)  # se determinan las asociaciones
+
+
+##### Sumarización:
+
+m <- as.matrix(tdm)                            # lo vuelve una matriz
+v <- sort(rowSums(m),decreasing=TRUE)          # lo ordena y suma
+df <- data.frame(word = names(v),freq=v)       # lo nombra y hace data.frame
+
+# Y se hace la nube de palabras: 
+
+wordcloud(words = df$word, freq = df$freq, min.freq = 2,
+          max.words=100, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+
+```
+
+
+
+## Tiempos de entrevista.
+
+<br>
+
+Es importante analizar los tiempos de entrevista para una prueba piloto inicial como la de este ejercicio. Conocer los tiempos que un entrevistador requiere para obtener la información en una entrevista, permitirá una planeación realista y objetiva de las cargas de trabajo en un levantamiento definitivo.
+
+La distribución de tiempos de entrevista se muestra a continuación.
+
+<br>
+
+```{r graf_hist_t, echo = FALSE, message = FALSE, fig.height= 8, fig.width= 10, warning = FALSE, cache=F}
+ 
+library(MASS)
+
+interview_diagnostics2 <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/interview_diagnostics2.csv", header=T)
+
+interview_diagnostics2$duracion <- as.numeric(substring(as.character(interview_diagnostics2$durac, ':'),5,5))*60 +
+  as.numeric(substring(as.character(interview_diagnostics2$durac, ':'),7,8)) + 
+  as.numeric(substring(as.character(interview_diagnostics2$durac, ':'),10,11))/60
+
+truehist(interview_diagnostics2$duracion[which(interview_diagnostics2$duracion > 0)], 
+     col="deepskyblue2", nbins = 50,
+     main = "Histograma de la duración de las entrevistas", xlab = "minutos", ylab="Frec. relativa")
+```
+
+<br>
+<br>
+
+De la misma forma, se aprecian diferencias cuando el comparativo se realiza entre las unidades de observación agrupadas por tipo de actividad.
+
+<br>
+```{r graf_tiem_act, echo = FALSE, message = FALSE, fig.height= 12, fig.width= 10, warning = FALSE, cache=F}
+ 
+library(ggplot2)
+
+interview_diagnostics2 <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/interview_diagnostics2.csv", header=T)
+
+interview_diagnostics2$duracion <- as.numeric(substring(as.character(interview_diagnostics2$durac, ':'),5,5))*60 +
+  as.numeric(substring(as.character(interview_diagnostics2$durac, ':'),7,8)) + 
+  as.numeric(substring(as.character(interview_diagnostics2$durac, ':'),10,11))/60
+
+ggplot(interview_diagnostics2[which(interview_diagnostics2$tipo_actividad != ''),], 
+       aes(x=interview_diagnostics2$tipo_actividad[which(interview_diagnostics2$tipo_actividad != '')], y=interview_diagnostics2$duracion[which(interview_diagnostics2$tipo_actividad != '')])) + 
+  geom_boxplot(
+    # custom boxes
+    color="blue",
+    fill="blue",
+    alpha=0.2,
+    # Notch
+    notch=F,
+    notchwidth = 0.8,
+    # custom outliers
+    outlier.colour="red",
+    outlier.fill="red",
+    outlier.size=3) +
+  xlab('') + ylab('Minutos') + 
+  ggtitle('Duración de la entrevista por tipo de actividad del establecimiento') +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+```
+
+<br>
+
+Destacan los tiempos de entrevista de los hospitales y de las empresas de la industria alimentaria, principalmente.
+
+<br>
+<br>
+
+## Mapa de establecimientos entrevistados.
+
+<br>
+
+Por último, es de destacar las potencialidades de R como SIG para lectura, visualización, procesamiento y análisis de datos georreferenciados. En el caso de los datos de este proyecto, se tomaron las coordenadas GPS de la mayoría de las unidades de observación visitadas, y con ello puede crearse un mapa con dichos puntos, donde es posible agregar pop-ups con cualquier de información.
+
+Para generar los mapas en este ejemplo, se usa la librería leaflet (y sus dependencias), la cual enlaza las coordenadas y proyecciones con una base de OpenStreetMap, el cual es un proyecto abierto y colaborativo que brinda herramientas gratuitas para geoprocesamiento, y no tener que depender de costosos programas SIG de licencia como ArcGIS.
+
+<br>
+
+```{r mapa1, echo=FALSE, message=FALSE, warning=FALSE, fig.height=6, cache =TRUE, out.width = "100%"}
+library(sp)
+library(rgdal)
+library(leaflet)
+library(htmltools)
+library(htmlwidgets)
+library(leaflet.extras)
+library(mapview)  
+library(raster)
+library(bitops)
+library(rjson)
+library(xts)
+
+
+puntos <- read.csv("bd_pp_eramo2020/procesamiento/bd_explot/establecimientos2.csv", header = T, encoding = "UTF-8")
+puntos <- subset(puntos, puntos$latitud != "NA")
+crs_4326 <- CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')
+puntos_sp <- SpatialPointsDataFrame(puntos[,c(6,5)],puntos[,-c(6,5)], proj4string = crs_4326)
+writeOGR(puntos_sp, "shape_files", "puntos", driver="ESRI Shapefile", encoding = 'UTF-8',
+         overwrite_layer=T)
+puntos_sp2 <- readOGR("shape_files/puntos.shp", encoding = 'UTF-8',
+                      "puntos", verbose=FALSE)
+puntos_sp2@data$lat <- puntos$lat
+puntos_sp2@data$lon <- puntos$lon
+
+m <- leaflet() %>% addTiles() %>% addFullscreenControl()
+m %>% setView(lng = -102.29584, lat = 21.88418, zoom = 10)  %>%
+  addMarkers(data=puntos_sp2, 
+             clusterOptions = markerClusterOptions(removeOutsideVisibleBounds = T),
+             popup = paste0( "<strong>ID_DENUE: </strong>", puntos$id, "</br>",
+                     "<strong>ESTABLECIMIENTO: </strong>", 
+                                puntos$nombre_establecimiento, "</br>",
+                             "<strong>ACTIVIDAD: </strong>", puntos$tipo_actividad))
+
+```
+
+<p align="center"> **Mapa de Establecimientos Entrevistados en Aguascalientes en la PP ERAMO 2020** </p>
+
+
+</div>
